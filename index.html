@@ -345,6 +345,45 @@ body{background:#120907}
 .panel{overflow:hidden}
 .powers{max-width:100%}
 @media (max-width:410px){.powers{gap:4px}.pw{padding:5px 5px;font-size:11.5px;gap:2px}.pw .pe{font-size:13px}.pw .cost{font-size:10.5px}}
+
+/* album + shop */
+.rope{background:var(--rope,linear-gradient(90deg,#f1e2bd,#a98d5c))}
+.alblist{display:flex;flex-direction:column;gap:8px}
+.albcat{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;background:rgba(30,14,10,.72);border:1px solid var(--line);text-align:left;width:100%;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.albcat:active{transform:scale(.98)}
+.albcat .ai{font-size:28px;width:44px;height:44px;display:grid;place-items:center;border-radius:12px;background:rgba(255,255,255,.06);flex:none}
+.albcat .am{flex:1;min-width:0}
+.albcat b{font-family:var(--ff-h);font-weight:600;font-size:16px;display:block}
+.albcat small{color:var(--ink2);font-size:13px;font-weight:700}
+.albcat .bar{height:8px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden;margin-top:5px}
+.albcat .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#ffd24a,#ff7a1a)}
+.albcat .md{font-size:26px;flex:none;min-width:30px;text-align:center}
+.albcat .md.none{opacity:.25;filter:grayscale(1)}
+.stickers{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.stk{border-radius:14px;padding:10px 4px 8px;background:linear-gradient(180deg,#fff7e0,#ffe2a8);color:#3a1d08;text-align:center;border:2px solid #fff;box-shadow:0 3px 0 rgba(0,0,0,.35);min-height:84px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.stk .se{font-size:30px;line-height:1}
+.stk .sw{font-family:var(--ff-h);font-weight:600;font-size:11.5px;line-height:1.05;letter-spacing:.3px;word-break:break-word}
+.stk.locked{background:rgba(30,14,10,.6);color:var(--ink2);border:2px dashed rgba(255,255,255,.22);box-shadow:none}
+.stk.locked .se{opacity:.5}
+.stk:not(.locked):active{transform:scale(.95)}
+.shoptop{display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:18px;background:rgba(30,14,10,.72);border:1px solid var(--line)}
+#shopGlim{width:84px;height:104px;flex:none}
+.shoph{font-family:var(--ff-h);font-size:19px;margin:8px 0 8px;text-shadow:0 2px 6px #000}
+.shopgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:10px}
+.item{border-radius:16px;border:2px solid var(--line);background:rgba(30,14,10,.72);padding:8px 6px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.item:active{transform:scale(.96)}
+.item .pv{width:64px;height:60px;display:grid;place-items:center}
+.item .pv svg{width:100%;height:100%;overflow:visible}
+.item .sw{width:46px;height:46px;border-radius:50%;border:3px solid rgba(255,255,255,.85);box-shadow:0 3px 8px rgba(0,0,0,.5)}
+.item .rp{width:10px;height:54px;border-radius:5px;border:1.5px solid rgba(0,0,0,.5)}
+.item b{font-family:var(--ff-h);font-weight:600;font-size:13.5px;line-height:1.1}
+.item .pr{font-size:12.5px;font-weight:800;padding:3px 9px;border-radius:99px;background:rgba(255,255,255,.1)}
+.item.on{border-color:var(--gold)}
+.item.on .pr{background:var(--gold);color:#2a1a05}
+.item.own .pr{background:rgba(126,224,178,.2);color:#9af0c4}
+.item.arm{border-color:#ff7a1a;box-shadow:0 0 0 3px rgba(255,122,26,.3)}
+.item.arm .pr{background:#ff7a1a;color:#fff}
+.item.poor .pr{opacity:.6}
 </style>
 </head>
 <body>
@@ -389,6 +428,10 @@ body{background:#120907}
         <button class="btn violet" data-go="setup:rush"><span class="emo">⚡</span><span class="lbl">Eruption Rush<span class="sub">Beat the clock</span></span></button>
       </div>
       <button class="btn" data-go="party"><span class="emo">🎉</span><span class="lbl">Party Mode<span class="sub">One person picks the word, everyone guesses</span></span></button>
+      <div class="grid2">
+        <button class="btn" data-go="album"><span class="emo">📒</span><span class="lbl">Word Album<span class="sub" id="mAlbum">0 stickers</span></span></button>
+        <button class="btn" data-go="shop"><span class="emo">🛍️</span><span class="lbl">Shop<span class="sub">New looks</span></span></button>
+      </div>
       <div class="menu-icons">
         <button class="iconbtn" data-go="achievements" aria-label="Achievements">🏆</button>
         <button class="iconbtn" data-go="themes" aria-label="Worlds">🗺️</button>
@@ -489,6 +532,23 @@ body{background:#120907}
     </div>
   </section>
 
+  <section class="screen" id="album" aria-label="Word Album">
+    <div class="wrap">
+      <div class="topbar"><button class="iconbtn" id="albBack" aria-label="Back">←</button><h2 id="albTitle">Word Album</h2><span class="pill" id="albCount">0</span></div>
+      <p class="muted" id="albHint" style="margin:0;text-shadow:0 2px 6px #000"></p>
+      <div id="albList" class="alblist"></div>
+      <div id="albGrid" class="stickers"></div>
+    </div>
+  </section>
+
+  <section class="screen" id="shop" aria-label="Shop">
+    <div class="wrap">
+      <div class="topbar"><button class="iconbtn" data-go="menu" aria-label="Back">←</button><h2>Shop</h2><span class="pill" title="Coins"><span aria-hidden="true">🪙</span><span id="shopCoins">0</span><span class="sr">coins</span></span></div>
+      <div class="shoptop"><div id="shopGlim"></div><p class="muted" style="margin:0">Spend the coins you earn on a new look. Tap an item once to pick it, then tap again to buy.</p></div>
+      <div id="shopBody"></div>
+    </div>
+  </section>
+
   <section class="screen" id="themes" aria-label="Worlds">
     <div class="wrap">
       <div class="topbar"><button class="iconbtn" data-go="menu" aria-label="Back">←</button><h2>Worlds</h2></div>
@@ -585,7 +645,7 @@ body{background:#120907}
 <script>
 (()=>{
 'use strict';
-const VERSION='1.0.1';
+const VERSION='1.1.0';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;};
 const rand=n=>Math.floor(Math.random()*n);
@@ -2400,7 +2460,8 @@ const fresh=()=>({xp:0,level:1,sparks:120,streak:0,theme:'magma',ach:{},recent:[
   stats:{played:0,won:0,solved:0,best:0,golden:0,cats:{},bestRush:0},
   settings:{music:45,sfx:80,muted:false,reduced:false,big:false},
   prefs:{age:'teens',diff:'medium',cat:'mixed'},
-  daily:{last:null,streak:0,done:{}}});
+  daily:{last:null,streak:0,done:{}},
+  album:{},medals:{},shop:{own:{},eq:{outfit:'blue',hat:'helmet',rope:'tan',flag:'gold'}}});
 let S=fresh();
 function load(){try{const raw=localStorage.getItem(KEY);if(raw){const d=JSON.parse(raw);S=deepMerge(fresh(),d);}}catch(e){S=fresh();}}
 function deepMerge(a,b){if(typeof b!=='object'||!b)return a;for(const k in a){if(k in b){if(a[k]&&typeof a[k]==='object'&&!Array.isArray(a[k]))a[k]=deepMerge(a[k],b[k]);else if(typeof b[k]===typeof a[k])a[k]=b[k];}}for(const k in b){if(!(k in a))a[k]=b[k];}return a;}
@@ -2599,10 +2660,18 @@ function drawCliff(g,t,P,GL){
     sx.strokeStyle='rgba(255,240,220,.35)';sx.lineWidth=1.5;sx.beginPath();sx.moveTo(hx-w/2+6,y-5);sx.lineTo(hx+w/2-5,y-5);sx.stroke();
     if(i===next&&i<V.total){sx.save();sx.globalAlpha=.45+.3*Math.sin(t*5);sx.strokeStyle=P.lava[0];sx.shadowColor=P.lava[1];sx.shadowBlur=10;sx.lineWidth=2;sx.beginPath();sx.moveTo(hx-w/2+6,y-5);sx.lineTo(hx+w/2-5,y-5);sx.stroke();sx.restore();}
     if(top){ // finish flag
-      const fxp=g.cx+g.pw*.45;sx.strokeStyle='#e9dcc0';sx.lineWidth=4;sx.lineCap='round';sx.beginPath();sx.moveTo(fxp,y-4);sx.lineTo(fxp,y-62);sx.stroke();
-      sx.fillStyle='#ffd24a';sx.beginPath();sx.moveTo(fxp+2,y-61);for(let k=0;k<=8;k++){sx.lineTo(fxp+2+k*4.6,y-61+k*.6+Math.sin(t*5+k*.8)*2.6);}for(let k=8;k>=0;k--){sx.lineTo(fxp+2+k*4.6,y-39-k*.6+Math.sin(t*5+k*.8)*2.6);}sx.closePath();sx.fill();
-      sx.fillStyle='#ff7a1a';sx.beginPath();sx.arc(fxp+17,y-50+Math.sin(t*5+3)*2,5,0,6.283);sx.fill();}
+      drawFlag(g.cx+g.pw*.45,y,t);}
   }
+}
+function drawFlag(fxp,y,t){
+  const F=flagLook();const wv=k=>Math.sin(t*5+k*.8)*2.6,top=k=>y-61+k*.6+wv(k),bot=k=>y-39-k*.6+wv(k),X=k=>fxp+2+k*4.6;
+  const cell=(k0,k1,a,b,col)=>{sx.fillStyle=col;sx.beginPath();for(let k=k0;k<=k1;k++)sx.lineTo(X(k),top(k)+(bot(k)-top(k))*a);for(let k=k1;k>=k0;k--)sx.lineTo(X(k),top(k)+(bot(k)-top(k))*b+.4);sx.closePath();sx.fill();};
+  sx.strokeStyle='#e9dcc0';sx.lineWidth=4;sx.lineCap='round';sx.beginPath();sx.moveTo(fxp,y-4);sx.lineTo(fxp,y-62);sx.stroke();
+  if(F.k==='check'){for(let c=0;c<4;c++)for(let r=0;r<3;r++)cell(c*2,c*2+2,r/3,(r+1)/3,(c+r)%2?F.c[0]:F.c[1]);}
+  else{const n=F.c.length;for(let i=0;i<n;i++)cell(0,8,i/n,(i+1)/n,F.c[i]);}
+  const ex=fxp+17,ey=y-50+Math.sin(t*5+3)*2;
+  if(F.k==='dot'){sx.fillStyle=F.e;sx.beginPath();sx.arc(ex,ey,5,0,6.283);sx.fill();}
+  else if(F.k==='star'||F.k==='heart'){sx.fillStyle=F.e;sx.font='bold 17px sans-serif';sx.textAlign='center';sx.textBaseline='middle';sx.fillText(F.k==='star'?'★':'♥',ex,ey+1);}
 }
 function drawLava(g,t,dt,P,GL,rm){
   const s=g.surf,bot=g.h+30;
@@ -2693,11 +2762,7 @@ function glimSVG(){const o='stroke="#2a1410" stroke-width="2.4" stroke-linejoin=
 <g class="eyes"><ellipse cx="40" cy="44" rx="5.2" ry="6.8" fill="#2a1410"/><ellipse cx="60" cy="44" rx="5.2" ry="6.8" fill="#2a1410"/><circle cx="42" cy="41" r="2.2" fill="#fff"/><circle cx="62" cy="41" r="2.2" fill="#fff"/><circle cx="38.6" cy="47" r="1" fill="#fff" opacity=".7"/><circle cx="58.6" cy="47" r="1" fill="#fff" opacity=".7"/></g>
 <path class="browL" d="M33 34 q6 -4 12 -1" stroke="#2a1410" stroke-width="2.4" fill="none" stroke-linecap="round"/><path class="browR" d="M55 33 q6 -3 12 1" stroke="#2a1410" stroke-width="2.4" fill="none" stroke-linecap="round"/>
 <path class="mouth" d="M41 55 Q50 64 59 55" stroke="#2a1410" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M22.5 37 Q23 9 50 8 Q77 9 77.5 37 Z" fill="url(#hHelm)" ${o}/>
-<path d="M30 30 Q32 15 46 12" stroke="rgba(255,255,255,.65)" stroke-width="4" fill="none" stroke-linecap="round"/>
-<rect x="18" y="32" width="64" height="8.5" rx="4.2" fill="#e8910f" ${o}/>
-<circle class="lampglow" cx="50" cy="22" r="19" fill="url(#hLamp)"/>
-<circle cx="50" cy="22" r="7.5" fill="#fffbe0" stroke="#7a5510" stroke-width="2.2"/><circle cx="48" cy="20" r="2.4" fill="#fff"/>
+<g class="hat">${hatSVG(S.shop.eq.hat)}</g>
 <path class="sweat" d="M82 26 q5 8 0 12 q-5 -4 0 -12z" fill="#9fe0ff" stroke="#2a1410" stroke-width="1.4"/>
 </svg>`;}
 const MOUTH={happy:'M41 55 Q50 64 59 55',big:'M40 54 Q50 70 60 54 Z',worried:'M42 60 Q46 55 50 59 Q54 63 58 58',oh:'M45.5 56 Q50 66 54.5 56 Q50 50 45.5 56Z',sleepy:'M43 57 Q50 62 57 57'};
@@ -2713,6 +2778,7 @@ function show(id){$$('.screen').forEach(s=>s.classList.toggle('active',s.id===id
   if(id==='menu'){renderMenu();music('menu');}
   if(id==='achievements')renderAch(); if(id==='themes')renderThemes(); if(id==='settings')renderSettings();
   if(id==='setup')renderSetup();
+  if(id==='album'){albCat=null;renderAlbum();} if(id==='shop'){shopArm=null;renderShop();}
   if(id==='party'){$('#pErr').textContent='';music('party');}
   const s=$('#'+id);if(s)s.scrollTop=0;}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(!b)return;audioInit();sfx('tap');const go=b.dataset.go;
@@ -2726,6 +2792,7 @@ function renderMenu(){
   $('#mLvl').textContent=S.level;$('#mLvlName').textContent=`Level ${S.level} · ${S.xp}/${xpNeed(S.level)} XP`;
   requestAnimationFrame(()=>$('#mXp').style.width=(S.xp/xpNeed(S.level)*100)+'%');
   $('#mSparks').textContent=S.sparks;$('#mStreak').textContent=S.streak;$('#mBest').textContent=S.stats.best;$('#mWords').textContent=S.stats.solved;
+  $('#mAlbum').textContent=`${Object.keys(S.album).length} stickers`;
   const done=S.daily.done[today()];const b=$('#dailyBtn');b.classList.toggle('done',!!done);
   $('#dailyBadge').textContent=done?'✓':'NEW';$('#dailySub').textContent=done?`Done! Streak ${S.daily.streak}`:(S.daily.streak&&S.daily.last===yesterday()?`Keep your ${S.daily.streak}-day streak`:'New word today');
   const hg=$('#heroGlim');if(!hg.firstChild)hg.innerHTML=glimSVG();
@@ -2901,6 +2968,7 @@ function win(){
   S.stats.won++;S.stats.played++;S.stats.solved++;S.stats.cats[G.w.cat]=1;
   if(G.mode==='journey'||G.mode==='rush'){S.streak++;S.stats.best=Math.max(S.stats.best,S.streak);}
   if(G.mode==='rush'){G.solvedRun++;G.timeLeft+=12;}
+  Object.assign(G,albumAdd(G.mode==='party'?null:G.w));
   const newA=[];const u=id=>{if(unlock(id,true))newA.push(id);};
   u('first');if(perfect)u('perfect');if(G.lives===1)u('close');if(S.streak>=5)u('streak5');if(S.streak>=10)u('streak10');
   if(G.diff==='hard'){u('hard');if(!G.usedPower)u('nohelp');}if(S.stats.solved>=50)u('words50');if(Object.keys(CATS).every(k=>S.stats.cats[k]))u('allcats');
@@ -2964,6 +3032,7 @@ function result({win,lines,total,sparks,lv,newA,hadStreak}){
   setTimeout(()=>xi.style.width=(S.xp/xpNeed(S.level)*100)+'%',200);
   if(lv)sh.append(el('div','levelup',`⬆️ Level up! You're now level ${S.level}`));
   if(newA&&newA.length){const na=el('div','newach');newA.forEach(id=>{const a=ACH.find(x=>x.id===id);na.append(el('div',null,`${a.e} Achievement: ${a.n} (+50 🪙)`));});sh.append(na);}
+  if(win&&G.sticker){const na=el('div','newach');na.append(el('div',null,`${G.w.e||'📒'} New sticker for your Word Album!`));if(G.medal)na.append(el('div',null,`${G.medal[0]} ${G.medal[1]} medal: ${G.medal[2]} (+${G.medal[3]} 🪙)`));sh.append(na);}
   const act=el('div','actions');
   if(G.mode==='daily'){
     const share=el('button','btn primary','Share result 📋');share.onclick=()=>shareDaily(share);act.append(share);
@@ -3094,7 +3163,116 @@ setTimeout(boot,1700);$('#splash').addEventListener('click',()=>{audioInit();boo
 // first touch anywhere unlocks audio (browsers require a tap before sound)
 addEventListener('pointerdown',()=>{const first=!A.ctx;audioInit();if(first&&A.ctx){const s=A.style;A.style=null;music(s||'menu');}},{passive:true});
 // test hook (harmless): lets automated tests read state
-window.__glimmer={get G(){return G},get S(){return S},guess:(l)=>guess(l),chooseWord,pool,save,AGES,DIFF,CATS,ALL};
+
+/* ================= WORD ALBUM ================= */
+const MEDALS=[[.25,'🥉','Bronze',50],[.5,'🥈','Silver',100],[1,'🥇','Gold',200]];
+const albHave=k=>CATS[k].words.filter(w=>S.album[w.w]).length;
+function albumAdd(w){const r={sticker:false,medal:null};
+  if(!w||!w.cat||!CATS[w.cat]||S.album[w.w])return r;
+  S.album[w.w]=1;r.sticker=true;
+  const c=CATS[w.cat],frac=albHave(w.cat)/c.words.length,had=S.medals[w.cat]||0;let lvl=had;
+  MEDALS.forEach((m,i)=>{if(frac>=m[0])lvl=Math.max(lvl,i+1);});
+  if(lvl>had){S.medals[w.cat]=lvl;let coins=0;for(let i=had;i<lvl;i++)coins+=MEDALS[i][3];S.sparks+=coins;const m=MEDALS[lvl-1];r.medal=[m[1],m[2],c.name,coins];}
+  return r;
+}
+let albCat=null;
+function renderAlbum(){
+  const L=$('#albList'),Gd=$('#albGrid');L.textContent='';Gd.textContent='';
+  $('#albCount').textContent=albCat?`${albHave(albCat)}/${CATS[albCat].words.length}`:`${Object.keys(S.album).length}/${ALL.length}`;
+  $('#albTitle').textContent=albCat?CATS[albCat].name:'Word Album';
+  if(!albCat){
+    $('#albHint').textContent='Every word you solve becomes a sticker. Fill a category to win bronze, silver and gold medals.';
+    for(const k in CATS){const c=CATS[k],n=albHave(k),lv=S.medals[k]||0;
+      const b=el('button','albcat');b.setAttribute('aria-label',`${c.name}, ${n} of ${c.words.length} stickers`);
+      const m=el('div','am');m.append(el('b',null,c.name),el('small',null,`${n} of ${c.words.length}`));const bar=el('div','bar');const i=el('i');i.style.width=(n/c.words.length*100)+'%';bar.append(i);m.append(bar);
+      b.append(el('div','ai',c.icon),m,el('div','md'+(lv?'':' none'),lv?MEDALS[lv-1][1]:'🏅'));
+      b.onclick=()=>{sfx('tap');albCat=k;renderAlbum();$('#album').scrollTop=0;};L.append(b);}
+    return;}
+  const c=CATS[albCat],lv=S.medals[albCat]||0,n=albHave(albCat);
+  const nx=MEDALS[lv];$('#albHint').textContent=nx?`${Math.max(1,Math.ceil(nx[0]*c.words.length)-n)} more for the ${nx[2].toLowerCase()} medal ${nx[1]}. Tap a sticker to read its clue.`:'Gold medal! You found every word here. 🥇';
+  const ws=[...c.words].sort((a,b)=>(S.album[b.w]?1:0)-(S.album[a.w]?1:0));
+  for(const w of ws){const got=!!S.album[w.w];const d=el(got?'button':'div','stk'+(got?'':' locked'));
+    d.append(el('div','se',got?(w.e||c.icon):'❓'),el('div','sw',got?w.w:`${w.w.replace(/[^A-Z]/g,'').length} letters`));
+    if(got)d.onclick=()=>{sfx('tap');toast(w.e||c.icon,w.w,w.c);};Gd.append(d);}
+}
+$('#albBack').onclick=()=>{sfx('tap');if(albCat){albCat=null;renderAlbum();$('#album').scrollTop=0;}else show('menu');};
+
+/* ================= COIN SHOP ================= */
+const SHOP={
+ outfit:{name:'Outfits',items:[
+  {id:'blue',n:'Trail Blue',p:0,c:['#4fd0e0','#1f8fc4','#145a94']},
+  {id:'red',n:'Lava Red',p:150,c:['#ff9a78','#e2452c','#99200f']},
+  {id:'green',n:'Forest Green',p:150,c:['#8fe07a','#3aa648','#1a6a2c']},
+  {id:'purple',n:'Royal Purple',p:200,c:['#c9a0ff','#8450e0','#4a2496']},
+  {id:'pink',n:'Bubblegum',p:200,c:['#ffb8dc','#f55aa6','#b02a70']},
+  {id:'ninja',n:'Night Ninja',p:350,c:['#6c7288','#343848','#151722']},
+  {id:'gold',n:'Golden Hero',p:600,c:['#fff4a8','#f5c030','#b4780a']}]},
+ hat:{name:'Hats',items:[
+  {id:'helmet',n:'Miner Helmet',p:0},{id:'fire',n:'Fire Helmet',p:150},{id:'beanie',n:'Snow Beanie',p:200},
+  {id:'party',n:'Party Hat',p:250},{id:'cowboy',n:'Cowboy Hat',p:300},{id:'crown',n:'Royal Crown',p:800}]},
+ rope:{name:'Rescue ropes',items:[
+  {id:'tan',n:'Classic',p:0,c:['#f1e2bd','#a98d5c']},{id:'red',n:'Red',p:80,c:['#ff8a70','#c22a1a']},
+  {id:'blue',n:'Blue',p:80,c:['#8ad4ff','#1f70c4']},{id:'green',n:'Neon',p:80,c:['#d4ff7a','#3ec21a']},
+  {id:'rainbow',n:'Rainbow',p:250,c:['#ff4d4d','#ffb000','#ffe94d','#4dd964','#4da6ff','#b06aff']}]},
+ flag:{name:'Summit flags',items:[
+  {id:'gold',n:'Gold',p:0,c:['#ffd24a'],e:'#ff7a1a',k:'dot'},
+  {id:'red',n:'Red',p:100,c:['#f0492f'],e:'#fff2c0',k:'dot'},
+  {id:'blue',n:'Blue',p:100,c:['#3aa0f0'],e:'#fff',k:'dot'},
+  {id:'check',n:'Race Day',p:200,c:['#fff','#22222a'],k:'check'},
+  {id:'star',n:'Star',p:250,c:['#3a2a9a'],e:'#ffe14d',k:'star'},
+  {id:'heart',n:'Heart',p:250,c:['#ffd9ea'],e:'#f0366e',k:'heart'},
+  {id:'rainbow',n:'Rainbow',p:400,c:['#ff4d4d','#ffb000','#ffe94d','#4dd964','#4da6ff','#b06aff'],k:'none'}]}
+};
+const shopItem=(t,id)=>SHOP[t].items.find(i=>i.id===id)||SHOP[t].items[0];
+const owns=(t,i)=>i.p===0||!!S.shop.own[t+':'+i.id];
+function flagLook(){return shopItem('flag',S.shop.eq.flag);}
+function hatSVG(id){const o='stroke="#2a1410" stroke-width="2.4" stroke-linejoin="round"';
+  const lamp=`<circle class="lampglow" cx="50" cy="22" r="19" fill="url(#hLamp)"/><circle cx="50" cy="22" r="7.5" fill="#fffbe0" stroke="#7a5510" stroke-width="2.2"/><circle cx="48" cy="20" r="2.4" fill="#fff"/>`;
+  const dome='M22.5 37 Q23 9 50 8 Q77 9 77.5 37 Z',shine='<path d="M30 30 Q32 15 46 12" stroke="rgba(255,255,255,.65)" stroke-width="4" fill="none" stroke-linecap="round"/>';
+  if(id==='fire')return `<path d="${dome}" fill="#e8432b" ${o}/>${shine}<rect x="18" y="32" width="64" height="8.5" rx="4.2" fill="#a51f12" ${o}/>${lamp}`;
+  if(id==='beanie')return `<path d="${dome}" fill="#3aa0e8" ${o}/><path d="M27 24 Q50 14 73 24" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" opacity=".85"/><rect x="19" y="29" width="62" height="11" rx="5.5" fill="#f4f8ff" ${o}/><circle cx="50" cy="8" r="7.5" fill="#f4f8ff" ${o}/>`;
+  if(id==='party')return `<path d="M30 33 L50 1 L70 33 Q50 39 30 33Z" fill="#ff5aa8" ${o}/><circle cx="46" cy="20" r="2.6" fill="#ffe14d"/><circle cx="56" cy="27" r="2.6" fill="#7fe0ff"/><circle cx="42" cy="30" r="2.6" fill="#b6f23a"/><circle cx="50" cy="3.5" r="5" fill="#ffe14d" ${o}/>`;
+  if(id==='cowboy')return `<ellipse cx="50" cy="34" rx="41" ry="8" fill="#8a5a2e" ${o}/><path d="M29 34 Q28 9 42 12 Q50 17 58 12 Q72 9 71 34 Z" fill="#a8703a" ${o}/><path d="M29.5 29 Q50 35 70.5 29" stroke="#3a2418" stroke-width="5" fill="none"/>`;
+  if(id==='crown')return `<path d="M25 35 L22 10 L37 23 L50 5 L63 23 L78 10 L75 35 Z" fill="#ffd24a" ${o}/><rect x="24" y="30" width="52" height="8" rx="3" fill="#f0a81a" ${o}/><circle cx="50" cy="22" r="4" fill="#f0366e" stroke="#2a1410" stroke-width="1.4"/><circle cx="34" cy="28" r="2.6" fill="#4da6ff"/><circle cx="66" cy="28" r="2.6" fill="#4dd964"/>`;
+  return `<path d="${dome}" fill="url(#hHelm)" ${o}/>${shine}<rect x="18" y="32" width="64" height="8.5" rx="4.2" fill="#e8910f" ${o}/>${lamp}`;
+}
+function applyLook(){
+  const c=shopItem('outfit',S.shop.eq.outfit).c;$$('#hJacket stop').forEach((s,i)=>s.setAttribute('stop-color',c[i]));
+  const r=shopItem('rope',S.shop.eq.rope).c;document.documentElement.style.setProperty('--rope',r.length>2?`linear-gradient(180deg,${r.join(',')}) 0 0/100% 90px`:`linear-gradient(90deg,${r[0]},${r[1]})`);
+  $$('.glim .hat').forEach(h=>h.innerHTML=hatSVG(S.shop.eq.hat));
+}
+let shopArm=null;
+function shopPreview(t,i){const pv=el('div','pv');
+  if(t==='outfit'){const s=el('div','sw');s.style.background=`linear-gradient(135deg,${i.c.join(',')})`;pv.append(s);}
+  else if(t==='rope'){const s=el('div','rp');s.style.background=i.c.length>2?`linear-gradient(180deg,${i.c.join(',')})`:`linear-gradient(90deg,${i.c[0]},${i.c[1]})`;pv.append(s);}
+  else if(t==='hat'){pv.innerHTML=`<svg viewBox="10 -2 80 74" aria-hidden="true"><circle cx="50" cy="42" r="26.5" fill="#f7c492" stroke="#2a1410" stroke-width="2.4"/><ellipse cx="40" cy="46" rx="4.4" ry="5.8" fill="#2a1410"/><ellipse cx="60" cy="46" rx="4.4" ry="5.8" fill="#2a1410"/><path d="M42 57 Q50 64 58 57" stroke="#2a1410" stroke-width="2.6" fill="none" stroke-linecap="round"/>${hatSVG(i.id).replace(/<circle class="lampglow"[^>]*>/,'')}</svg>`;}
+  else{let f='';if(i.k==='check'){for(let c=0;c<4;c++)for(let r=0;r<3;r++)f+=`<rect x="${14+c*10}" y="${8+r*8}" width="10" height="8" fill="${(c+r)%2?i.c[0]:i.c[1]}"/>`;}
+    else{const n=i.c.length;i.c.forEach((col,k)=>f+=`<rect x="14" y="${8+k*24/n}" width="40" height="${24/n+.3}" fill="${col}"/>`);}
+    if(i.k==='dot')f+=`<circle cx="34" cy="20" r="6" fill="${i.e}"/>`;if(i.k==='star'||i.k==='heart')f+=`<text x="34" y="26.5" text-anchor="middle" font-size="19" font-weight="bold" fill="${i.e}">${i.k==='star'?'★':'♥'}</text>`;
+    pv.innerHTML=`<svg viewBox="0 0 64 60" aria-hidden="true">${f}<rect x="14" y="8" width="40" height="24" fill="none" stroke="#2a1410" stroke-width="1.6"/><path d="M12 6 V56" stroke="#e9dcc0" stroke-width="4" stroke-linecap="round"/></svg>`;}
+  return pv;}
+function renderShop(){
+  $('#shopCoins').textContent=S.sparks;const sg=$('#shopGlim');if(!sg.firstChild)sg.innerHTML=glimSVG();applyLook();
+  const B=$('#shopBody');B.textContent='';
+  for(const t in SHOP){B.append(el('h3','shoph',SHOP[t].name));const g=el('div','shopgrid');
+    SHOP[t].items.forEach(i=>{const own=owns(t,i),on=S.shop.eq[t]===i.id,arm=shopArm===t+':'+i.id,poor=!own&&S.sparks<i.p;
+      const b=el('button','item'+(on?' on':own?' own':'')+(arm?' arm':'')+(poor?' poor':''));
+      const label=on?'In use ✓':own?'Use':arm?'Tap to buy':`🪙 ${i.p}`;
+      b.setAttribute('aria-label',`${i.n}, ${on?'in use':own?'owned, tap to use':arm?`tap again to buy for ${i.p} coins`:`${i.p} coins`}`);b.setAttribute('aria-pressed',on);
+      b.append(shopPreview(t,i),el('b',null,i.n),el('span','pr',label));b.onclick=()=>shopTap(t,i.id);g.append(b);});
+    B.append(g);}
+}
+function shopTap(t,id){const i=shopItem(t,id),key=t+':'+id;
+  if(owns(t,i)){shopArm=null;if(S.shop.eq[t]!==id){S.shop.eq[t]=id;save();sfx('power');}}
+  else if(S.sparks<i.p){shopArm=null;sfx('miss');toast('🪙',i.n,`You need ${i.p-S.sparks} more coins. Solve words to earn them.`);}
+  else if(shopArm!==key){shopArm=key;sfx('tap');}
+  else{shopArm=null;S.sparks-=i.p;S.shop.own[key]=1;S.shop.eq[t]=id;save();sfx('ach');const r=$('#shopGlim').getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,{n:26,colors:['#fff','#ffe14d','#ffb000'],speed:240,g:260,kind:'star'});toast('🛍️','New look!',`${i.n} is yours.`);}
+  if(cur==='shop')renderShop();else applyLook();
+}
+['outfit','hat','rope','flag'].forEach(t=>{if(!SHOP[t].items.some(i=>i.id===S.shop.eq[t]&&owns(t,i)))S.shop.eq[t]=SHOP[t].items[0].id;});
+applyLook();
+
+window.__glimmer={get G(){return G},get S(){return S},guess:(l)=>guess(l),get SHOP(){return SHOP},shopTap,albumAdd,chooseWord,pool,save,AGES,DIFF,CATS,ALL};
 })();
 </script>
 </body>
