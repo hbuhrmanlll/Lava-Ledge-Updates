@@ -428,6 +428,15 @@ body{background:#120907}
 .herobox.wob .heroin{animation:wob .12s linear infinite}
 @keyframes wob{0%{transform:translate(-1.5px,0)}50%{transform:translate(1.5px,1px)}100%{transform:translate(-1.5px,0)}}
 @media (prefers-reduced-motion:reduce){.scene.danger::after,.herobox.wob .heroin,.herobox.party .heroin{animation:none}}
+
+/* team race */
+.turnpill{font-family:var(--ff-h);font-weight:600;border-width:2px}
+.turnpill.t0{border-color:#4aa8ff;color:#bfe2ff;box-shadow:0 0 14px rgba(74,168,255,.45)}
+.turnpill.t1{border-color:#ff6a4a;color:#ffd0c4;box-shadow:0 0 14px rgba(255,106,74,.45)}
+.herobox.turn::before{content:'▼';position:absolute;left:50%;top:-24px;transform:translateX(-50%);font-size:18px;color:#fff6c2;text-shadow:0 0 10px #ff7a1a,0 2px 3px #000;animation:tarrow .6s ease-in-out infinite alternate}
+@keyframes tarrow{to{transform:translate(-50%,6px)}}
+.herobox.rescued::before{display:none}
+#heroBox2[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -439,6 +448,8 @@ body{background:#120907}
     <linearGradient id="hHelm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe680"/><stop offset=".6" stop-color="#ffb91f"/><stop offset="1" stop-color="#e58a0c"/></linearGradient>
     <linearGradient id="hJacket" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4fd0e0"/><stop offset=".6" stop-color="#1f8fc4"/><stop offset="1" stop-color="#145a94"/></linearGradient>
     <radialGradient id="hLamp"><stop offset="0" stop-color="#fffbd6" stop-opacity=".95"/><stop offset=".4" stop-color="#ffe98a" stop-opacity=".45"/><stop offset="1" stop-color="#ffe98a" stop-opacity="0"/></radialGradient>
+    <linearGradient id="hJacketA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6fd2ff"/><stop offset=".6" stop-color="#2a8ae0"/><stop offset="1" stop-color="#14509c"/></linearGradient>
+    <linearGradient id="hJacketB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9a78"/><stop offset=".6" stop-color="#e2452c"/><stop offset="1" stop-color="#99200f"/></linearGradient>
     <linearGradient id="hPack" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9a6238"/><stop offset="1" stop-color="#5e3719"/></linearGradient>
   </defs>
 </svg>
@@ -471,7 +482,10 @@ body{background:#120907}
         <button class="btn violet" id="dailyBtn" data-go="daily"><span class="emo">📅</span><span class="lbl">Daily Dash<span class="sub" id="dailySub">New word today</span></span><span class="badge" id="dailyBadge">NEW</span></button>
         <button class="btn violet" data-go="setup:rush"><span class="emo">⚡</span><span class="lbl">Eruption Rush<span class="sub">Beat the clock</span></span></button>
       </div>
-      <button class="btn" data-go="party"><span class="emo">🎉</span><span class="lbl">Party Mode<span class="sub">One person picks the word, everyone guesses</span></span></button>
+      <div class="grid2">
+        <button class="btn" data-go="party"><span class="emo">🎉</span><span class="lbl">Party Mode<span class="sub">You pick the word</span></span></button>
+        <button class="btn" data-go="team"><span class="emo">🏁</span><span class="lbl">Team Race<span class="sub">Two teams, one screen</span></span></button>
+      </div>
       <div class="grid2">
         <button class="btn" data-go="album"><span class="emo">📒</span><span class="lbl">Word Album<span class="sub" id="mAlbum">0 stickers</span></span></button>
         <button class="btn" data-go="shop"><span class="emo">🛍️</span><span class="lbl">Shop<span class="sub">New looks</span></span></button>
@@ -537,6 +551,38 @@ body{background:#120907}
     </div>
   </section>
 
+  <section class="screen" id="team" aria-label="Team Race">
+    <div class="wrap">
+      <div class="topbar"><button class="iconbtn" data-go="menu" aria-label="Back">←</button><h2>Team Race</h2></div>
+      <div class="card">
+        <p style="margin:0 0 12px;line-height:1.45" class="muted">Two teams race up side by side on one screen. Teams take turns guessing a letter. A right letter moves your climber up, and you go again. A wrong letter raises the lava and passes the turn. The team that climbs highest wins the round.</p>
+        <div class="grid2" style="margin-bottom:12px">
+          <div><label class="tiny" for="tName1">🔵 Team 1 name</label><input class="field" id="tName1" type="text" maxlength="14" autocomplete="off" value="Blue Team" style="margin-top:6px;letter-spacing:0;font-size:16px"></div>
+          <div><label class="tiny" for="tName2">🔴 Team 2 name</label><input class="field" id="tName2" type="text" maxlength="14" autocomplete="off" value="Red Team" style="margin-top:6px;letter-spacing:0;font-size:16px"></div>
+        </div>
+        <div class="section-h" style="margin-bottom:8px">Word level</div>
+        <div class="seg" id="tAge" style="margin-bottom:12px">
+          <button class="chip" data-v="kids"><b>Kids</b><small>Easy words</small></button>
+          <button class="chip" data-v="teens" aria-pressed="true"><b>Teens</b><small>Medium</small></button>
+          <button class="chip" data-v="adults"><b>Adults</b><small>Tough</small></button>
+        </div>
+        <div class="section-h" style="margin-bottom:8px">Misses allowed</div>
+        <div class="seg" id="tDiff" style="margin-bottom:12px">
+          <button class="chip" data-v="easy"><b>8</b><small>Easy</small></button>
+          <button class="chip" data-v="medium" aria-pressed="true"><b>6</b><small>Medium</small></button>
+          <button class="chip" data-v="hard"><b>5</b><small>Hard</small></button>
+        </div>
+        <div class="section-h" style="margin-bottom:8px">First team to win</div>
+        <div class="seg" id="tGoal">
+          <button class="chip" data-v="1"><b>1</b><small>round</small></button>
+          <button class="chip" data-v="2" aria-pressed="true"><b>2</b><small>rounds</small></button>
+          <button class="chip" data-v="3"><b>3</b><small>rounds</small></button>
+        </div>
+      </div>
+      <button class="btn primary" id="tStart">Start the race 🏁</button>
+    </div>
+  </section>
+
   <section class="screen" id="game" aria-label="Game">
     <div class="g-wrap">
       <div class="g-head">
@@ -546,13 +592,15 @@ body{background:#120907}
       </div>
       <div class="stats">
         <span class="pill stat" aria-label="Misses left">❤️ <span id="gLives">6</span></span>
-        <span class="pill stat">⭐ <span id="gScore">0</span></span>
+        <span class="pill stat" id="gScoreP">⭐ <span id="gScore">0</span></span>
+        <span class="pill stat turnpill" id="gTurnP" hidden aria-live="polite"></span>
         <span class="pill stat" id="gStreakP">🔥 <span id="gStreak">0</span></span>
         <span class="pill stat timer" id="gTimerP" hidden>⏱ <span id="gTimer">90</span>s</span>
       </div>
       <div class="scene" id="scene">
         <div class="climbbar" aria-hidden="true"><span>🏁</span><i id="climbFill"></i></div>
         <div class="herobox" id="heroBox"><div class="rope"></div><div class="heroin" id="gameGlim"></div></div>
+        <div class="herobox" id="heroBox2" hidden><div class="rope"></div><div class="heroin" id="gameGlim2"></div></div>
         <div class="combo" id="combo"></div>
         <div class="banner" id="banner" aria-hidden="true"></div>
       </div>
@@ -705,7 +753,7 @@ body{background:#120907}
 <script>
 (()=>{
 'use strict';
-const VERSION='1.2.0';
+const VERSION='1.3.0';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;};
 const rand=n=>Math.floor(Math.random()*n);
@@ -2610,7 +2658,7 @@ document.addEventListener('visibilitychange',()=>{if(!A.ctx)return;if(document.h
 /* ================= SCENE (canvas: cave, cliff, lava) ================= */
 const sky=$('#sky'),sx=sky.getContext('2d'),fx=$('#fx'),fxx=fx.getContext('2d');
 let W=0,H=0,DPR=1,parts=[],embers=[],bubbles=[],drips=[],PAL=THEMES[0].pal,spurtT=1.5,dripT=1;
-const V={climb:0,climbT:0,lava:1,lavaT:1,total:5,shake:0,win:0,flash:0,surge:0,pT:1,slow:0};let tClock=0;
+const V={climb:0,climbT:0,lava:1,lavaT:1,total:5,shake:0,win:0,flash:0,surge:0,pT:1,slow:0,tc:[0,0],tcT:[0,0]};let TEAMDRAW=-1;let tClock=0;
 const hsh=n=>{const s=Math.sin(n*127.1+311.7)*43758.5453;return s-Math.floor(s);};
 function resize(){DPR=Math.min(window.devicePixelRatio||1,2.5);W=innerWidth;H=innerHeight;for(const c of[sky,fx]){c.width=Math.round(W*DPR);c.height=Math.round(H*DPR);}sx.setTransform(DPR,0,0,DPR,0,0);fxx.setTransform(DPR,0,0,DPR,0,0);
   if(cur==='game'){sizeTiles();placeHero();}}
@@ -2624,9 +2672,17 @@ function geom(){
 }
 const ledgeX=(g,i)=>g.cx+(i%2?1:-1)*g.pw*.4;
 const ledgeY=(g,i)=>g.feet+(V.climb-i)*g.sp;
-function placeHero(){const g=geom();if(!g.game)return;const hb=$('#heroBox');const step=G.steps||0;
+function placeHero(){const g=geom();if(!g.game)return;if(G.mode==='team')return placeTeams(g);const hb=$('#heroBox');const step=G.steps||0;
   const hh=clamp(g.h*.2,62,96);hb.style.width=(hh*100/124)+'px';hb.style.height=hh+'px';
   hb.style.left=ledgeX(g,step)+'px';hb.style.top=g.feet+'px';}
+function tgeom(g,k){return{...g,cx:W/2+(k?1:-1)*Math.min(W*.235,210),pw:clamp(W*.165,56,112)};}
+function placeTeams(g){const hh=clamp(g.h*.18,56,88);for(let k=0;k<2;k++){const hb=$(k?'#heroBox2':'#heroBox');hb.style.width=(hh*100/124)+'px';hb.style.height=hh+'px';hb.style.left=ledgeX(tgeom(g,k),G.tsteps[k])+'px';}}
+function drawTeams(g,t,dt,P,GL){const sv=[V.climb,V.climbT];
+  for(let k=0;k<2;k++)V.tc[k]+=(V.tcT[k]-V.tc[k])*Math.min(1,dt*7);
+  const avg=(V.tc[0]+V.tc[1])/2;
+  for(let k=0;k<2;k++){const cam=V.tc[k]+clamp((avg-V.tc[k])*.5,-.8,.8);V.climb=cam;V.climbT=V.tcT[k];TEAMDRAW=k;drawCliff(tgeom(g,k),t,P,GL);
+    $(k?'#heroBox2':'#heroBox').style.top=(g.feet+(cam-G.tsteps[k])*g.sp)+'px';}
+  V.climb=sv[0];V.climbT=sv[1];TEAMDRAW=-1;}
 function waveY(x,t,s){const A=1.35+V.surge*1.5;return s+A*(Math.sin(x*.017+t*1.9)*5+Math.sin(x*.043-t*1.5)*3+Math.sin(x*.009+t*.8)*4);}
 function sideWall(g,dir,base,amp,par,seed,fill,rim){
   const scroll=V.climb*g.sp*par,step=46;const j0=Math.floor((-60-scroll)/step),j1=Math.ceil((H+60-scroll)/step);
@@ -2659,7 +2715,7 @@ function frame(now){
   drawFalls(g,t,dt,P,GL,rm);const rimA=.2+.09*Math.sin(t*2.3)+V.surge*.25;sideWall(g,-1,W*.02,W*.09,.7,3,wg2,`rgba(${GL},${rimA})`);sideWall(g,1,W*.02,W*.09,.7,4,wg2,`rgba(${GL},${rimA})`);
   // stalactites along the top
   sx.fillStyle=P.wall[1];for(let i=0;i<9;i++){const x=W*(i+.5)/9+(hsh(i+40)-.5)*30,l=18+hsh(i+60)*46,w=9+hsh(i+80)*12;sx.beginPath();sx.moveTo(x-w,-4);sx.lineTo(x+w,-4);sx.lineTo(x+(hsh(i+3)-.5)*6,l);sx.closePath();sx.fill();}
-  if(g.game)drawCliff(g,t,P,GL);
+  if(g.game){if(G.mode==='team')drawTeams(g,t,dt,P,GL);else drawCliff(g,t,P,GL);}
   drawDrips(g,t,dt,P,rm);
   drawLava(g,t,dt,P,GL,rm);
   // vignette
@@ -2713,7 +2769,7 @@ function drawCliff(g,t,P,GL){
   if(topY>-260){sx.globalCompositeOperation='lighter';const rg=sx.createRadialGradient(g.cx,topY-90,6,g.cx,topY-90,240+V.win*120);rg.addColorStop(0,`rgba(${P.shaft},${.22+V.win*.5})`);rg.addColorStop(1,`rgba(${P.shaft},0)`);sx.fillStyle=rg;sx.fillRect(g.cx-380,topY-470,760,760);sx.globalCompositeOperation='source-over';}
   // ledges
   const next=Math.round(V.climbT)+1;
-  const wob=G&&G.lives===1&&!G.ended&&!rmq()?G.steps:-9;
+  const wob=G&&G.lives===1&&!G.ended&&!rmq()?(G.mode==='team'?G.tsteps[TEAMDRAW]:G.steps):-9;
   for(let i=0;i<=V.total;i++){const y=ledgeY(g,i)+(i===wob?Math.sin(t*46)*1.6:0);if(y<-40||y>g.h+40)continue;const x=ledgeX(g,i)+(i===wob?Math.sin(t*61)*1.8:0),top=i===V.total,w=top?g.pw*1.5:Math.min(92,g.pw*.86),hx=top?g.cx:x;
     sx.fillStyle='rgba(0,0,0,.42)';sx.beginPath();sx.moveTo(hx-w/2+8,y+14);sx.lineTo(hx+w/2-6,y+14);sx.lineTo(hx+w*.2,y+34);sx.lineTo(hx-w*.25,y+30);sx.closePath();sx.fill();
     // front face
@@ -2806,7 +2862,8 @@ function confetti(){if(reduced())return burst(W/2,H*.3,{n:10});for(let k=0;k<3;k
 addEventListener('resize',resize);
 
 /* ================= CLIMBER (mascot) ================= */
-function glimSVG(){const o='stroke="#2a1410" stroke-width="2.4" stroke-linejoin="round"';return `<svg class="glim" viewBox="0 0 100 124" aria-hidden="true">
+function glimSVG(jacket){return glimRaw().replaceAll('url(#hJacket)',`url(#${jacket||'hJacket'})`);}
+function glimRaw(){const o='stroke="#2a1410" stroke-width="2.4" stroke-linejoin="round"';return `<svg class="glim" viewBox="0 0 100 124" aria-hidden="true">
 <ellipse cx="50" cy="119" rx="25" ry="4.5" fill="rgba(0,0,0,.38)"/>
 <rect x="23" y="60" width="54" height="40" rx="15" fill="url(#hPack)" ${o}/>
 <rect x="34" y="92" width="14" height="19" rx="5" fill="#2d4a66" ${o}/><rect x="52" y="92" width="14" height="19" rx="5" fill="#2d4a66" ${o}/>
@@ -2910,13 +2967,14 @@ let G=null;
 function startGame(mode,opt){
   G={mode,age:opt.age||'teens',diff:opt.diff||'medium',cat:opt.cat||'mixed',session:0,solvedRun:0,timeLeft:mode==='rush'?90:0,paused:false,ended:false,custom:opt.custom||null,dailyKey:opt.dailyKey||null,dailyWord:opt.dailyWord||null,steps:0};
   $('#gTimerP').hidden=mode!=='rush';
-  $('#gStreakP').hidden=mode==='daily'||mode==='party';
-  $('#gMode').textContent={journey:'Climb',rush:'Eruption Rush',daily:'Daily Dash',party:'Party Mode'}[mode];
+  $('#gStreakP').hidden=mode==='daily'||mode==='party'||mode==='team';
+  $('#gMode').textContent={journey:'Climb',rush:'Eruption Rush',daily:'Daily Dash',party:'Party Mode',team:'Team Race'}[mode];
   const catName=G.cat==='mixed'?'Mix It Up':CATS[G.cat].name;
   $('#gMeta').textContent=mode==='party'?`${DIFF[G.diff].name} · ${DIFF[G.diff].lives} misses`:`${AGES[G.age].name} · ${DIFF[G.diff].name}${mode==='daily'?'':' · '+catName}`;
   $('#gameGlim').innerHTML=glimSVG();
+  teamInit(mode,opt);
   show('game');
-  music(mode==='rush'?'rush':mode==='party'?'party':'game');
+  music(mode==='rush'?'rush':mode==='party'||mode==='team'?'party':'game');
   newWord();
   if(mode==='rush')startTimer();
   scheduleStar();
@@ -2930,11 +2988,12 @@ function newWord(){
   V.total=letters.length;V.climbT=0;V.climb=-1.2;V.lavaT=1;V.lava=1.25;V.win=0;
   const hb=$('#heroBox');hb.style.transition='none';hb.classList.remove('rescued','party','wob');placeHero();void hb.offsetWidth;hb.style.transition='';
   renderLives();renderWord();renderKB();renderClue();renderPowers();updateHUD();
-  setGlim($('#gameGlim'),'happy');
+  setGlim(curGlim(),'happy');
   if(G.mode==='journey')mapWordStart();
+  if(G.mode==='team')teamNewWord();
   announce(`New word. ${w.w.replace(/[^A-Z ]/g,'').split(' ').map(x=>x.length+' letters').join(', then ')}. ${G.max} misses allowed.`);
 }
-function renderLives(){const dg=G.lives===1&&!G.ended;$('#scene').classList.toggle('danger',dg);$('#heroBox').classList.toggle('wob',dg);$('#gLives').textContent=G.lives;V.lavaT=G.lives/G.max;$('#climbFill').style.height=(G.steps/G.letters.length*100)+'%';}
+function renderLives(){const dg=G.lives===1&&!G.ended;$('#scene').classList.toggle('danger',dg);$('#heroBox').classList.toggle('wob',dg);$('#heroBox2').classList.toggle('wob',dg);$('#gLives').textContent=G.lives;V.lavaT=G.lives/G.max;$('#climbFill').style.height=(G.steps/G.letters.length*100)+'%';}
 function sizeTiles(){if(!G)return;const parts=G.word.split(' ');const longest=Math.max(...parts.map(p=>p.length));const avail=Math.min(innerWidth,720)-28;
   const size=clamp(Math.floor((avail-(longest-1)*5)/longest),22,54);document.documentElement.style.setProperty('--tile',size+'px');}
 function renderWord(){const box=$('#word');box.textContent='';
@@ -2950,7 +3009,7 @@ function renderClue(){const c=$('#clue');c.textContent='';
 function costOf(p){return{clue:15,beam:30,breeze:20,ember:40}[p];}
 function renderPowers(){
   const off=G.mode==='daily'||G.mode==='party';
-  $('#powers').style.display=off&&(G.clue||!G.w.c)?'none':'flex';
+  $('#powers').style.display=G.mode==='team'||off&&(G.clue||!G.w.c)?'none':'flex';
   $$('.pw').forEach(b=>{const p=b.dataset.pw;let dis=G.ended||G.paused||S.sparks<costOf(p);
     if(off&&p!=='clue')b.hidden=true;else b.hidden=false;
     if(p==='clue')dis=dis||G.clue||!G.w.c;
@@ -2965,7 +3024,8 @@ function updateHUD(){$('#gSparks').textContent=S.sparks;$('#gScore').textContent
 function announce(t){$('#wordSr').textContent=t;}
 function keyEl(L){return $(`.key[data-k="${L}"]`);}
 function floaty(text,x,y,color){const f=el('div','floaty',text);f.style.left=x+'px';f.style.top=y+'px';if(color)f.style.color=color;document.body.append(f);setTimeout(()=>f.remove(),1200);}
-function heroJump(){const hi=$('#gameGlim');hi.style.setProperty('--lean',(G.steps%2?8:-8)+'deg');hi.classList.remove('jump');void hi.offsetWidth;if(!reduced()){hi.classList.add('jump');const st=G.steps;setTimeout(()=>{if(G&&cur==='game'){const q=geom();burst(ledgeX(q,st),q.feet-4,{n:9,colors:['#d9c2ae','#a48672','#ffe0a0'],speed:110,g:260,kind:'dot',life:.55});}},400);}placeHero();}
+const curGlim=()=>$(G&&G.mode==='team'&&G.team?'#gameGlim2':'#gameGlim'),curBox=()=>$(G&&G.mode==='team'&&G.team?'#heroBox2':'#heroBox');
+function heroJump(){const hi=curGlim();hi.style.setProperty('--lean',(G.steps%2?8:-8)+'deg');hi.classList.remove('jump');void hi.offsetWidth;if(!reduced()){hi.classList.add('jump');const st=G.steps,tm=G.team;setTimeout(()=>{if(G&&cur==='game'){const q=G.mode==='team'?tgeom(geom(),tm):geom();burst(ledgeX(q,st),q.feet-4,{n:9,colors:['#d9c2ae','#a48672','#ffe0a0'],speed:110,g:260,kind:'dot',life:.55});}},400);}placeHero();}
 
 function guess(L,{free=false}={}){
   if(!G||G.ended||G.paused||cur!=='game')return;
@@ -2976,8 +3036,8 @@ function guess(L,{free=false}={}){
     const tiles=$$('.tile').filter(t=>t.dataset.ch===L);const isGold=L===G.golden;
     // every copy of the letter shows at the same moment
     tiles.forEach(t=>{t.textContent=L;t.classList.add('on');if(isGold)t.classList.add('gold');});
-    G.steps++;V.climbT=G.steps;heroJump();
-    const hb=$('#heroBox').getBoundingClientRect();
+    if(G.mode==='team')teamStep();else{G.steps++;V.climbT=G.steps;}heroJump();
+    const hb=curBox().getBoundingClientRect();
     if(!free){G.combo++;const mult=1+.25*Math.min(G.combo-1,8);const pts=Math.round(10*tiles.length*mult*DIFF[G.diff].mult);G.score+=pts;
       floaty('+'+pts,hb.left+hb.width/2,hb.top-6);
       const cb=$('#combo');if(G.combo>=3){cb.textContent=`🔥 Combo x${mult.toFixed(2).replace(/\.?0+$/,'')}`;cb.classList.add('show');}}
@@ -2985,7 +3045,7 @@ function guess(L,{free=false}={}){
     sfx('hit',G.combo);
     if(isGold&&!G.goldFound){G.goldFound=true;S.sparks+=25;S.stats.golden++;sfx('gold');const r=tiles[0].getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,{n:22,colors:['#fff','#ffe14d','#ffb000'],speed:260,g:300,kind:'star'});floaty('+25 🪙 Golden letter!',innerWidth/2,geom().h-70,'#fff3a0');
       if(S.stats.golden>=5)unlock('golden5');}
-    setGlim($('#gameGlim'),(G.combo>=3||isGold)?'cheer':G.lives<=2?'worried':'happy');
+    setGlim(curGlim(),(G.combo>=3||isGold)?'cheer':G.lives<=2?'worried':'happy');
     if(G.letters.every(l=>G.guessed.has(l)))setTimeout(win,560);
   }else{
     G.wrong++;G.lives--;G.combo=0;$('#combo').classList.remove('show');G.wrongOrder.push(L);
@@ -2993,10 +3053,11 @@ function guess(L,{free=false}={}){
     V.shake=1;V.flash=1;lavaSplash(reduced()?6:34);
     const w=$('#word');w.classList.remove('shake');void w.offsetWidth;if(!reduced())w.classList.add('shake');
     sfx('miss');if(navigator.vibrate&&!reduced())try{navigator.vibrate(60);}catch(e){}
-    setGlim($('#gameGlim'),'oops');
+    setGlim(curGlim(),'oops');
     if(G.lives===1)lastChance();
+    if(G.mode==='team'&&G.lives>0)teamTurn(1-G.team);
     if(G.lives<=0)setTimeout(lose,650);
-    else if(G.lives>2){const w0=G.word;setTimeout(()=>{if(G&&!G.ended&&G.word===w0&&G.lives>2)setGlim($('#gameGlim'),'happy');},750);}
+    else if(G.lives>2){const w0=G.word;setTimeout(()=>{if(G&&!G.ended&&G.word===w0&&G.lives>2)setGlim(curGlim(),'happy');},750);}
   }
   if(k)k.disabled=true;
   renderLives();updateSr();renderPowers();updateHUD();save();
@@ -3021,13 +3082,14 @@ function usePower(p){
   if(p==='clue'){G.clue=true;renderClue();}
   if(p==='beam'){const left=G.letters.filter(l=>!G.guessed.has(l));const L=pick(left.filter(l=>l!==G.golden).length?left.filter(l=>l!==G.golden):left);guess(L,{free:true});}
   if(p==='breeze'){const wl=wrongLeft();for(let i=0;i<3&&wl.length;i++){const L=wl.splice(rand(wl.length),1)[0];G.gone.add(L);const k=keyEl(L);if(k){k.classList.add('gone');k.disabled=true;}}}
-  if(p==='ember'){G.lives++;const g=geom();burst(innerWidth/2,g.surf,{n:26,colors:['#bff4ff','#7fe0ff','#fff'],speed:230,g:260,kind:'dot'});floaty('🧊 Lava cooled!',innerWidth/2,g.surf-40,'#bff4ff');setGlim($('#gameGlim'),'happy');}
+  if(p==='ember'){G.lives++;const g=geom();burst(innerWidth/2,g.surf,{n:26,colors:['#bff4ff','#7fe0ff','#fff'],speed:230,g:260,kind:'dot'});floaty('🧊 Lava cooled!',innerWidth/2,g.surf-40,'#bff4ff');setGlim(curGlim(),'happy');}
   renderLives();renderPowers();updateHUD();save();
 }
 
 /* win / lose */
 function win(){
   if(G.ended)return;G.ended=true;clearCombo();$('#scene').classList.remove('danger');
+  if(G.mode==='team'){teamRoundEnd(true);return;}
   const d=DIFF[G.diff];const bonus=Math.round((50+G.lives*20)*d.mult);const perfect=G.wrong===0;const perfBonus=perfect?Math.round(40*d.mult):0;
   const streakBonus=(G.mode==='journey'&&S.streak>=2)?Math.min(S.streak,10)*10:0;
   const total=G.score+bonus+perfBonus+streakBonus;G.session+=total;
@@ -3042,7 +3104,7 @@ function win(){
   if(G.diff==='hard'){u('hard');if(!G.usedPower)u('nohelp');}if(S.stats.solved>=50)u('words50');if(Object.keys(CATS).every(k=>S.stats.cats[k]))u('allcats');
   if(G.mode==='rush'&&G.solvedRun>=10)u('rush10');if(G.mode==='party')u('party');
   const lv=addXP(Math.round(total/3)+20);if(S.level>=10)u('lvl10');
-  setGlim($('#gameGlim'),'cheer');sfx('win');confetti();V.win=1;V.lavaT=1.3;summitParty(!!G.summit);
+  setGlim(curGlim(),'cheer');sfx('win');confetti();V.win=1;V.lavaT=1.3;summitParty(!!G.summit);
   updateHUD();renderPowers();
   if(G.mode==='daily')finishDaily(true);
   save();
@@ -3052,11 +3114,12 @@ function win(){
 function lose(){
   if(G.ended)return;G.ended=true;clearCombo();if(G.boss)stopTimer();$('#scene').classList.remove('danger');
   $$('.tile').forEach(t=>{if(!t.classList.contains('on')){t.textContent=t.dataset.ch;t.classList.add('miss');}});
+  if(G.mode==='team'){teamRoundEnd(false);return;}
   S.stats.played++;
   const hadStreak=S.streak;if(G.mode==='journey')S.streak=0;
   const sparks=G.mode==='party'?0:2;S.sparks+=sparks;const lv=addXP(Math.round(G.score/4)+5);
   // a rescue rope pulls the climber to safety just as the lava surges
-  $('#heroBox').classList.add('rescued');setGlim($('#gameGlim'),'oops');V.lavaT=-.3;V.shake=1;lavaSplash(reduced()?8:60);
+  $('#heroBox').classList.add('rescued');setGlim(curGlim(),'oops');V.lavaT=-.3;V.shake=1;lavaSplash(reduced()?8:60);
   sfx('lose');updateHUD();renderPowers();
   if(G.mode==='daily')finishDaily(false);
   const newA=[];if(G.mode==='party'&&unlock('party',true))newA.push('party');
@@ -3404,6 +3467,54 @@ function summitParty(big){$('#heroBox').classList.remove('wob');$('#heroBox').cl
 ['outfit','hat','rope','flag'].forEach(t=>{if(!SHOP[t].items.some(i=>i.id===S.shop.eq[t]&&owns(t,i)))S.shop.eq[t]=SHOP[t].items[0].id;});
 applyLook();
 
+/* ================= TEAM RACE ================= */
+const TOPT={age:'teens',diff:'medium',goal:'2'};
+[['#tAge','age'],['#tDiff','diff'],['#tGoal','goal']].forEach(([id,k])=>$(id).addEventListener('click',e=>{const c=e.target.closest('[data-v]');if(!c)return;sfx('tap');TOPT[k]=c.dataset.v;$$(id+' .chip').forEach(b=>b.setAttribute('aria-pressed',b===c));}));
+const tClean=(v,d)=>(v||'').replace(/[\u0000-\u001f<>]/g,'').trim().slice(0,14)||d;
+$('#tStart').onclick=()=>{audioInit();sfx('tap');startGame('team',{age:TOPT.age,diff:TOPT.diff,cat:'mixed',goal:+TOPT.goal,names:[tClean($('#tName1').value,'Blue Team'),tClean($('#tName2').value,'Red Team')]});};
+function teamInit(mode,opt){const team=mode==='team';
+  $('#heroBox2').hidden=!team;$('#gTurnP').hidden=!team;$('#gScoreP').hidden=team;
+  $('#heroBox').classList.remove('turn');$('#heroBox2').classList.remove('turn','rescued','party','wob');
+  if(!team)return;
+  Object.assign(G,{names:opt.names||['Blue Team','Red Team'],goal:opt.goal||2,wins:[0,0],round:0,team:0,tsteps:[0,0]});
+  $('#gameGlim').innerHTML=glimSVG('hJacketA');$('#gameGlim2').innerHTML=glimSVG('hJacketB');
+}
+function teamHUD(){$('#gMode').textContent=`Team Race · Round ${G.round+1}`;$('#gMeta').textContent=`${G.names[0]} ${G.wins[0]} – ${G.wins[1]} ${G.names[1]} · first to ${G.goal}`;}
+function teamNewWord(){G.tsteps=[0,0];V.tc=[-1.2,-1.2];V.tcT=[0,0];
+  const hb=$('#heroBox2');hb.style.transition='none';hb.classList.remove('rescued','party','wob');$('#heroBox').classList.remove('party');void hb.offsetWidth;hb.style.transition='';
+  setGlim($('#gameGlim'),'happy');setGlim($('#gameGlim2'),'happy');clearStar();
+  teamHUD();teamTurn(G.round%2,true);placeHero();}
+function teamTurn(t,first){G.team=t;G.steps=G.tsteps[t];G.combo=0;
+  $('#heroBox').classList.toggle('turn',t===0);$('#heroBox2').classList.toggle('turn',t===1);
+  const p=$('#gTurnP');p.className='pill stat turnpill t'+t;p.textContent=`${t?'🔴':'🔵'} ${G.names[t]}'s turn`;
+  if(!first){const r=curBox().getBoundingClientRect();floaty(`${G.names[t]}'s turn!`,r.left+r.width/2,r.top-34,t?'#ffc4b4':'#bfe2ff');}
+  announce(`${G.names[t]}'s turn.`);}
+function teamStep(){const t=G.team;G.tsteps[t]++;G.steps=G.tsteps[t];V.tcT[t]=G.tsteps[t];V.climbT=(G.tsteps[0]+G.tsteps[1])/2;}
+function teamRoundEnd(done){const [a,b]=G.tsteps;const w=a>b?0:b>a?1:(done?G.team:1-G.team);G.wins[w]++;const over=G.wins[w]>=G.goal;G.roundWinner=w;
+  $('#heroBox').classList.remove('wob','turn');$('#heroBox2').classList.remove('wob','turn');
+  setGlim($('#gameGlim'),w===0?'cheer':'oops');setGlim($('#gameGlim2'),w===1?'cheer':'oops');
+  if(done){V.win=1;V.lavaT=1.3;sfx('win');confetti();$(w?'#heroBox2':'#heroBox').classList.add('party');}
+  else{$('#heroBox').classList.add('rescued');$('#heroBox2').classList.add('rescued');V.lavaT=-.3;V.shake=1;lavaSplash(reduced()?8:60);sfx('lose');setTimeout(()=>{if(G&&cur==='game'){sfx('win');confetti();}},700);}
+  banner(`${over?'RACE':'ROUND'} WINNER: ${G.names[w].toUpperCase()}!`);
+  S.sparks+=over?25:5;if(over)unlock('party',true);save();updateHUD();teamHUD();
+  if(over&&!reduced())for(let k=0;k<8;k++)setTimeout(()=>{if(cur==='game')burst(W*(.12+Math.random()*.76),H*(.1+Math.random()*.3),{n:34,colors:w?['#fff','#ff9a78','#e2452c']:['#fff','#8ad4ff','#2a8ae0'],speed:320,g:240,kind:k%2?'star':'dot'});},300+k*200);
+  setTimeout(()=>{if(G&&cur==='game')teamResult(w,over,done,a,b);},over?2800:2100);
+}
+function teamResult(w,over,done,a,b){const sh=$('#resultSheet');sh.textContent='';
+  const gb=el('div','glim-mini');gb.innerHTML=glimSVG(w?'hJacketB':'hJacketA');sh.append(gb);setTimeout(()=>setGlim(gb,'cheer'),50);
+  const h=el('h2',null,over?`Race winner: ${G.names[w]}! 🏆`:`Round winner: ${G.names[w]}!`);h.id='rTitle';sh.append(h);
+  sh.append(el('div','big-word',G.word));
+  if(G.w.c)sh.append(Object.assign(el('p','muted',(G.w.e?G.w.e+' ':'')+G.w.c),{style:'text-align:center;margin:2px 0 0'}));
+  const why=a===b?(done?'Tied on ledges, so the team that finished the word wins.':'Tied on ledges, so the team that did not make the last miss wins.'):(done?'The word is solved. The higher climber wins.':'The lava won, so the higher climber wins.');
+  sh.append(Object.assign(el('p','tiny',why),{style:'text-align:center'}));
+  const L=el('div','lines');[[`🔵 ${G.names[0]} climbed`,a],[`🔴 ${G.names[1]} climbed`,b]].forEach(([n,v])=>{const d=el('div');d.append(el('span',null,n),el('b',null,`${v} ${v===1?'ledge':'ledges'}`));L.append(d);});
+  const t=el('div','total');t.append(el('span',null,`Rounds won (first to ${G.goal})`),el('b',null,`${G.wins[0]} – ${G.wins[1]}`));L.append(t);sh.append(L);
+  const act=el('div','actions');
+  const nx=el('button','btn primary',over?'Race again 🏁':'Next round ▶');nx.onclick=()=>{closeModal('#resultModal');sfx('tap');if(over){G.wins=[0,0];G.round=0;}else G.round++;newWord();};act.append(nx);
+  const mn=el('button','btn','Main menu');mn.onclick=()=>{closeModal('#resultModal');endGame();};act.append(mn);
+  sh.append(act);openModal('#resultModal');setTimeout(()=>nx.focus(),400);
+}
+
 /* ================= INSTALL AS AN APP ================= */
 let installEvt=null;
 addEventListener('beforeinstallprompt',e=>{e.preventDefault();installEvt=e;$('#installBtn').hidden=false;});
@@ -3412,7 +3523,7 @@ $('#installBtn').onclick=async()=>{sfx('tap');if(!installEvt)return;installEvt.p
 if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol))addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 XREADY=true;
 
-window.__glimmer={get G(){return G},get S(){return S},guess:(l)=>guess(l),get SHOP(){return SHOP},get TROPHIES(){return TROPHIES},checkTrophies,mtnName,shopTap,albumAdd,chooseWord,pool,save,AGES,DIFF,CATS,ALL};
+window.__glimmer={get G(){return G},get S(){return S},guess:(l)=>guess(l),get SHOP(){return SHOP},get TROPHIES(){return TROPHIES},get V(){return V},checkTrophies,mtnName,shopTap,albumAdd,chooseWord,pool,save,AGES,DIFF,CATS,ALL};
 })();
 </script>
 </body>
