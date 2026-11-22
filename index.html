@@ -762,7 +762,7 @@ body{background:#120907}
 <script>
 (()=>{
 'use strict';
-const VERSION='1.4.0';
+const VERSION='1.5.0';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;};
 const rand=n=>Math.floor(Math.random()*n);
@@ -3440,6 +3440,7 @@ function mapWordStart(){
   $('#gTimerP').hidden=!G.boss;$('#gTimerP').classList.remove('low');
   if(G.boss){G.timeLeft=BOSS_T[G.age]||75;lastTickSec=0;startTimer();updateHUD();$('#gMode').textContent='⏱ Boss Word';setTimeout(()=>{if(G&&G.boss&&!G.ended)banner('BOSS WORD!','warn');},250);}
   else{stopTimer();$('#gMode').textContent=`${mtnName(S.map.m)} · ${Math.min(S.map.step+1,10)}/10`;}
+  if(G.mode==='journey')music('game');
 }
 function mapWin(){G.summit=null;if(G.mode!=='journey')return;
   if(G.boss){stopTimer();const m=S.map.m,coins=Math.min(300,100+m*25);S.sparks+=coins;G.summit={name:mtnName(m),coins};S.map.m++;S.map.step=0;}
@@ -3552,9 +3553,47 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();installEvt=e;$('#i
 addEventListener('appinstalled',()=>{installEvt=null;$('#installBtn').hidden=true;toast('📲','Installed!','Lava Ledge is on your home screen.');});
 $('#installBtn').onclick=async()=>{sfx('tap');if(!installEvt)return;installEvt.prompt();try{await installEvt.userChoice;}catch(e){}installEvt=null;$('#installBtn').hidden=true;};
 if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol))addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+/* ===== Recorded music (mp3 files in music/). Falls back to the built-in synth when a track is missing. =====
+   HAVE lists the tracks that ship with the game. The music gets deeper as the lava gets closer. */
+const HAVE=['climb','boss'];
+const TR={el:null,name:'',heat:0,bad:{},beat:0,rum:null,style:''};
+const synthMusic=music,applyVol0=applyVolumes;
+/* climb = normal words and menus (quieter on menus); boss = boss words, Eruption Rush and Team Race */
+function trackFor(style){
+  const ok=n=>HAVE.includes(n)&&!TR.bad[n]?n:'';
+  if(style==='rush')return ok('boss')||ok('climb');
+  if(style==='game')return (G&&G.boss?ok('boss'):'')||ok('climb');
+  if(style==='party')return (G&&G.mode==='team'&&cur==='game'?ok('boss'):'')||ok('climb');
+  return ok('climb');
+}
+function trVol(){if(TR.el)TR.el.volume=S.settings.muted?0:Math.min(1,(S.settings.music/100)*(TR.style==='menu'?.5:.85));}
+function trPlay(){if(!TR.el||document.hidden)return;const pr=TR.el.play();if(pr&&pr.catch)pr.catch(()=>{});}
+function trStop(){if(TR.el){try{TR.el.pause();TR.el.removeAttribute('src');TR.el.load();}catch(e){}}TR.el=null;TR.name='';}
+function trRate(){if(!TR.el)return;const r=1-.11*TR.heat;try{TR.el.preservesPitch=false;TR.el.mozPreservesPitch=false;TR.el.webkitPreservesPitch=false;TR.el.playbackRate=r;}catch(e){}}
+music=function(style){
+  const want=style?trackFor(style):'';
+  if(!want){trStop();return synthMusic(style);}
+  synthMusic(null);A.style=style;TR.style=style;trVol();
+  if(TR.el&&TR.name===want)return trPlay();
+  trStop();const el=new Audio('music/'+want+'.mp3');el.loop=true;el.preload='auto';
+  el.addEventListener('error',()=>{if(TR.el!==el)return;TR.bad[want]=1;trStop();A.style=null;music(style);});
+  TR.el=el;TR.name=want;trVol();trRate();trPlay();
+};
+applyVolumes=function(){applyVol0();trVol();};
+/* danger level: 0 = safe, 1 = last chance */
+function heatNow(){if(cur!=='game'||!G||G.ended)return 0;if(G.lives<=1)return 1;return Math.min(.85,G.wrong/(G.wrong+G.lives-1||1));}
+setInterval(()=>{
+  const t=heatNow();TR.heat+=(t-TR.heat)*.25;if(Math.abs(t-TR.heat)<.01)TR.heat=t;trRate();
+  if(!A.ctx||A.ctx.state!=='running'||S.settings.muted)return;
+  if(!TR.rum){try{const o=A.ctx.createOscillator(),f=A.ctx.createBiquadFilter(),g=A.ctx.createGain();o.type='sawtooth';o.frequency.value=41;f.type='lowpass';f.frequency.value=110;g.gain.value=0;o.connect(f);f.connect(g);g.connect(A.music);o.start();TR.rum=g;}catch(e){return;}}
+  TR.rum.gain.setTargetAtTime(TR.heat*TR.heat*.55,A.ctx.currentTime,.3);
+  if(t>=1&&!G.paused&&A.ctx.currentTime>TR.beat){const c=A.ctx.currentTime+.05;tone(58,c,.22,{type:'sine',v:.5,out:A.music,glide:40});tone(52,c+.24,.2,{type:'sine',v:.35,out:A.music,glide:38});TR.beat=c+.85;}
+},200);
+document.addEventListener('visibilitychange',()=>{if(!TR.el)return;if(document.hidden)TR.el.pause();else trPlay();});
+{const p0=window.onAppPause,r0=window.onAppResume;window.onAppPause=()=>{p0&&p0();if(TR.el)TR.el.pause();};window.onAppResume=()=>{r0&&r0();trPlay();};}
 XREADY=true;
 
-window.__glimmer={get G(){return G},get S(){return S},guess:(l)=>guess(l),get SHOP(){return SHOP},get TROPHIES(){return TROPHIES},get V(){return V},checkTrophies,mtnName,shopTap,albumAdd,chooseWord,pool,save,AGES,DIFF,CATS,ALL};
+window.__glimmer={get G(){return G},get TR(){return TR},HAVE,music:s=>music(s),get S(){return S},guess:(l)=>guess(l),get SHOP(){return SHOP},get TROPHIES(){return TROPHIES},get V(){return V},checkTrophies,mtnName,shopTap,albumAdd,chooseWord,pool,save,AGES,DIFF,CATS,ALL};
 })();
 </script>
 </body>
