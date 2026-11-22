@@ -437,6 +437,12 @@ body{background:#120907}
 @keyframes tarrow{to{transform:translate(-50%,6px)}}
 .herobox.rescued::before{display:none}
 #heroBox2[hidden]{display:none}
+
+/* android app */
+.in-app .web-only,.in-app #installBtn{display:none!important}
+.uprog{height:10px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:12px}
+.uprog[hidden]{display:none}
+.uprog i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#ffd24a,#ff7a1a);transition:width .15s linear}
 </style>
 </head>
 <body>
@@ -709,7 +715,8 @@ body{background:#120907}
       <div class="tiny" id="updStatus" role="status" aria-live="polite"></div>
       <button class="btn primary" id="installBtn" style="max-width:300px" hidden>📲 Install the game</button>
       <div class="card" style="text-align:left;line-height:1.5;font-size:14.5px">
-        <b>Play it like an app:</b> Add Lava Ledge to your home screen and it opens full screen and works with no internet. On iPhone or iPad, tap Share, then "Add to Home Screen". On Android or a computer, tap Install above or use your browser menu.<br><br>
+        <span class="web-only"><b>Play it like an app:</b> Add Lava Ledge to your home screen and it opens full screen and works with no internet. On iPhone or iPad, tap Share, then "Add to Home Screen". On a computer, tap Install above or use your browser menu.<br><br>
+        <b>Android app:</b> <a href="https://hbuhrmanlll.github.io/Lava-Ledge-Updates/LavaLedge.apk" style="color:var(--gold2);font-weight:800">Download the Lava Ledge app (APK)</a>. It updates itself from inside the app.<br><br></span>
         <b>Privacy:</b> No account, no ads, no tracking. Your progress is saved only on this device and never leaves it.<br><br>
         <b>Credits:</b> Game design, art, music and sound by Third Heaven Studios. Music and sound effects are made live by the game itself. Fonts: Fredoka and Nunito (SIL Open Font License 1.1).
       </div>
@@ -745,6 +752,8 @@ body{background:#120907}
     <h2 id="uTitle" style="font-size:24px">Update ready</h2>
     <p class="muted" id="uVer" style="text-align:center;font-weight:800"></p>
     <p class="muted" id="uNotes" style="text-align:center;line-height:1.45"></p>
+    <div class="uprog" id="uProg" hidden><i id="uBar"></i></div>
+    <p class="tiny" id="uStatus" style="text-align:center;min-height:18px;margin:6px 0 0" role="status" aria-live="polite"></p>
     <div class="actions"><button class="btn" id="uLater">Later</button><button class="btn primary" id="uNow">Update</button></div>
   </div>
 </div>
@@ -753,7 +762,7 @@ body{background:#120907}
 <script>
 (()=>{
 'use strict';
-const VERSION='1.3.0';
+const VERSION='1.4.0';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;};
 const rand=n=>Math.floor(Math.random()*n);
@@ -3134,18 +3143,40 @@ function addXP(x){S.xp+=x;let up=false;while(S.xp>=xpNeed(S.level)){S.xp-=xpNeed
 
 /* ================= UPDATES (reads version.json next to the game) ================= */
 const vCmp=(a,b)=>{const x=String(a).split('.').map(Number),y=String(b).split('.').map(Number);for(let i=0;i<3;i++){const d=(x[i]||0)-(y[i]||0);if(d)return d;}return 0;};
-let updNew='';
+/* In the Android app the game talks to a small native helper (window.AndroidApp) that downloads and installs updates. */
+const APP=window.AndroidApp||null,UPD_BASE='https://hbuhrmanlll.github.io/Lava-Ledge-Updates/';
+let updNew='',updInfo=null,updBusy=false;
 async function checkUpdate(manual){const st=$('#updStatus');
-  if(location.protocol==='file:'){if(manual)st.textContent="Updates work when you play from the game's web link.";return;}
+  if(location.protocol==='file:'&&!APP){if(manual)st.textContent="Updates work when you play from the game's web link.";return;}
   if(manual)st.textContent='Checking…';
-  try{const r=await fetch('version.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('bad');const j=await r.json();
-    if(vCmp(j.version,VERSION)>0){updNew=String(j.version);st.textContent='Version '+updNew+' is ready.';$('#uVer').textContent='Version '+updNew;$('#uNotes').textContent=String(j.notes||'');
-      if(manual||cur==='menu'){openModal('#updateModal');$('#uNow').focus();}}
+  try{const r=await fetch((APP?UPD_BASE:'')+'version.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('bad');const j=await r.json();
+    if(vCmp(j.version,VERSION)>0){updNew=String(j.version);updInfo=j;st.textContent='Version '+updNew+' is ready.';$('#uVer').textContent='Version '+updNew;$('#uNotes').textContent=String(j.notes||'');
+      if(!updBusy){updReset();if(manual||cur==='menu'){openModal('#updateModal');$('#uNow').focus();}}}
     else if(manual)st.textContent='You have the newest version.';}
   catch(e){if(manual)st.textContent='Could not check for updates. Check your internet and tap again.';}}
+function updReset(){updBusy=false;$('#uNow').disabled=false;$('#uNow').textContent='Update';$('#uLater').disabled=false;$('#uProg').hidden=true;$('#uBar').style.width='0';$('#uStatus').textContent=APP?'The first time, Android asks you to allow Lava Ledge to install its own updates.':'';}
 $('#updBtn').onclick=()=>checkUpdate(true);
 $('#uLater').onclick=()=>closeModal('#updateModal');
-$('#uNow').onclick=()=>{$('#uNow').textContent='Updating…';location.replace(location.pathname+'?v='+encodeURIComponent(updNew));};
+$('#uNow').onclick=()=>{
+  if(!APP){$('#uNow').textContent='Updating…';location.replace(location.pathname+'?v='+encodeURIComponent(updNew));return;}
+  if(!updInfo||!updInfo.apk||!/^[0-9a-f]{64}$/i.test(String(updInfo.sha256||''))){$('#uStatus').textContent='The app file for this version is not ready yet. Please try again in a few minutes.';return;}
+  updBusy=true;$('#uNow').disabled=true;$('#uNow').textContent='Downloading…';$('#uProg').hidden=false;$('#uStatus').textContent='Starting the download…';
+  try{APP.downloadAndInstall(UPD_BASE+String(updInfo.apk).replace(/[^A-Za-z0-9._-]/g,''),String(updInfo.sha256));}catch(e){window.onUpdateStatus('Could not start the update. Please try again.','error');}
+};
+window.onUpdateProgress=f=>{const p=Math.max(0,Math.min(1,+f||0));$('#uProg').hidden=false;$('#uBar').style.width=(p*100)+'%';if(p<1)$('#uStatus').textContent=`Downloading… ${Math.round(p*100)}%`;};
+window.onUpdateStatus=(msg,kind)=>{$('#uStatus').textContent=String(msg);$('#updStatus').textContent=String(msg);
+  if(kind==='error'){updBusy=false;$('#uNow').disabled=false;$('#uNow').textContent='Try again';if(!$('#updateModal').classList.contains('open'))openModal('#updateModal');}
+  if(kind==='done'){updBusy=false;setTimeout(()=>location.reload(),900);}};
+/* Android back button, and pausing when the app goes to the background */
+window.onAppBack=()=>{const m=$('.modal.open');
+  if(m){if(m.id==='pauseModal')resume();else if(m.id==='updateModal'){if(!updBusy)closeModal('#updateModal');}else if(m.id==='confirmModal')closeModal('#confirmModal');return true;}
+  if(cur==='game'){pause();return true;}
+  if(cur==='album'&&albCat){albCat=null;renderAlbum();return true;}
+  if(cur!=='menu'&&cur!=='splash'){show('menu');return true;}
+  return false;};
+window.onAppPause=()=>{try{if(G&&cur==='game'&&!G.ended&&!G.paused)pause(true);if(A.ctx&&A.ctx.state==='running')A.ctx.suspend();}catch(e){}};
+window.onAppResume=()=>{try{if(A.ctx&&A.ctx.state==='suspended')A.ctx.resume();}catch(e){}};
+if(APP)document.documentElement.classList.add('in-app');
 setTimeout(()=>checkUpdate(false),3500);
 const WIN_T=['You made it!','Summit reached!','Too hot to handle!','Nailed it!','What a climb!','Unstoppable!'];
 const LOSE_T=['Rescued just in time!','So close!','The lava won this round'];
