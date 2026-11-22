@@ -585,7 +585,7 @@ body{background:#120907}
 <script>
 (()=>{
 'use strict';
-const VERSION='1.0.0';
+const VERSION='1.0.1';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;};
 const rand=n=>Math.floor(Math.random()*n);
@@ -620,7 +620,124 @@ AXOLOTL|Smiling salamander that can regrow limbs|🦎|3
 PANGOLIN|Scaly mammal that eats ants|🐜|3
 NARWHAL|Whale with a long spiral tusk|🐋|3
 HUMMINGBIRD|Tiny bird that can fly backward|🐦|3
-WOLVERINE|Small but fierce cousin of the weasel|🐾|3`],
+WOLVERINE|Small but fierce cousin of the weasel|🐾|3
+PIG|Pink farm animal that oinks|🐷|1
+COW|Farm animal that gives milk|🐮|1
+HEN|Mother chicken|🐔|1
+FISH|Swims and breathes through gills|🐟|1
+BIRD|Has feathers and wings|🐦|1
+GOAT|Farm animal with horns and a beard|🐐|1
+SHEEP|Woolly animal that says baa|🐑|1
+HORSE|You can ride it with a saddle|🐴|1
+MOUSE|Tiny animal that loves cheese|🐭|1
+SNAKE|Long animal with no legs|🐍|1
+WHALE|Biggest animal in the ocean|🐋|1
+BUNNY|Hops and has long ears|🐰|1
+MONKEY|Swings from trees and loves bananas|🐵|1
+PANDA|Black and white bear that eats bamboo|🐼|1
+SHARK|Ocean fish with lots of sharp teeth|🦈|1
+ELEPHANT|Huge animal with a trunk|🐘|2
+GORILLA|Largest of the apes|🦍|2
+PARROT|Colorful bird that can copy words|🦜|2
+OSTRICH|Biggest bird, and it cannot fly|🪶|2
+RACCOON|Masked animal that digs in trash cans|🦝|2
+HEDGEHOG|Small animal covered in spikes|🦔|2
+SQUIRREL|Bushy tail and a love for acorns|🐿️|2
+JELLYFISH|Sea animal with no bones and stinging arms|🪼|2
+BUTTERFLY|It starts life as a caterpillar|🦋|2
+CROCODILE|Big reptile with a long toothy snout|🐊|2
+SEAHORSE|Tiny sea animal with a curly tail|🌊|2
+PEACOCK|Bird with a giant fan of feathers|🦚|2
+LEOPARD|Spotted big cat that climbs trees|🐆|2
+BUFFALO|Big shaggy animal of the plains|🦬|2
+RHINOCEROS|Thick-skinned animal with a horn on its nose|🦏|3
+HIPPOPOTAMUS|Huge river animal with a giant mouth|🦛|3
+ORANGUTAN|Red-haired ape from the rainforest|🦧|3
+PORCUPINE|Rodent covered in sharp quills|🦔|3
+SALAMANDER|Amphibian that looks like a wet lizard|🦎|3
+TARANTULA|Big hairy spider|🕷️|3
+MONGOOSE|Small quick animal known for fighting snakes|🐾|3
+ALBATROSS|Sea bird with a very wide wingspan|🕊️|3
+CHIMPANZEE|Smart ape that uses tools|🐒|3
+WILDEBEEST|African animal that migrates in giant herds|🐃|3
+MANATEE|Gentle sea cow|🌊|3
+STINGRAY|Flat fish with a whip-like tail|🐟|3
+ANT|Tiny insect that lives in a hill|🐾|1
+BEE|Buzzing insect that makes honey|🐾|1
+OWL|Bird that hoots at night|🐾|1
+FOX|Clever red animal with a bushy tail|🐾|1
+CRAB|Walks sideways on the beach|🐾|1
+DEER|Forest animal with antlers|🐾|1
+SEAL|Sea animal that barks and claps|🐾|1
+WOLF|Wild dog that howls at the moon|🐾|1
+SWAN|White bird with a long curved neck|🐾|1
+GOOSE|Honking bird that flies in a V|🐾|1
+PUPPY|A baby dog|🐾|1
+KITTEN|A baby cat|🐾|1
+CAMEL|Desert animal with humps|🐾|1
+KOALA|Fuzzy gray animal that eats eucalyptus|🐾|1
+LLAMA|Woolly animal from South America that spits|🐾|1
+MOOSE|Giant deer with wide flat antlers|🐾|1
+OTTER|Playful swimmer that floats on its back|🐾|1
+ROBIN|Bird with a red chest|🐾|1
+SKUNK|Black and white animal with a stinky spray|🐾|1
+SLOTH|Slow animal that hangs from branches|🐾|1
+SNAIL|Slow crawler with a shell on its back|🐾|1
+SPIDER|Eight-legged web spinner|🐾|1
+DONKEY|Farm animal that says hee-haw|🐾|1
+LIZARD|Small reptile that suns on rocks|🐾|1
+RABBIT|Long-eared hopper|🐾|1
+TURKEY|Big bird that gobbles|🐾|1
+WALRUS|Sea animal with two long tusks|🐾|1
+BEAVER|Builds dams with its teeth|🐾|1
+CHICKEN|Farm bird that lays eggs|🐾|1
+HAMSTER|Small pet that runs on a wheel|🐾|2
+LOBSTER|Red sea animal with big claws|🐾|2
+PELICAN|Bird with a huge pouch under its beak|🐾|2
+MEERKAT|Small desert animal that stands guard|🐾|2
+PANTHER|Black big cat|🐾|2
+GAZELLE|Fast graceful antelope|🐾|2
+VULTURE|Bird that eats what is already dead|🐾|2
+ANTEATER|Its long tongue slurps up insects|🐾|2
+REINDEER|Deer of the far north|🐾|2
+SCORPION|Desert creature with a stinging tail|🐾|2
+STARFISH|Sea animal shaped like a five-point shape|🐾|2
+TORTOISE|Slow land reptile with a heavy shell|🐾|2
+MOSQUITO|Its bite makes you itch|🐾|2
+ELEPHANT SEAL|Huge ocean mammal with a trunk-like nose|🐾|2
+DRAGONFLY|Insect with four long clear wings|🐾|2
+BUMBLEBEE|Fuzzy round buzzer|🐾|2
+GRASSHOPPER|Green insect that jumps far|🐾|2
+CATERPILLAR|It becomes a butterfly|🐾|2
+WOODPECKER|Bird that drums on tree trunks|🐾|2
+POLAR BEAR|White giant of the Arctic|🐾|2
+GUINEA PIG|Small squeaky pet rodent|🐾|2
+SEA TURTLE|Ocean reptile that lays eggs on beaches|🐾|2
+BALD EAGLE|National bird of the United States|🐾|2
+KOMODO DRAGON|Largest lizard in the world|🐾|3
+MOUNTAIN LION|Also called a cougar or puma|🐾|3
+PRAYING MANTIS|Insect that folds its front legs|🐾|3
+RATTLESNAKE|Reptile that warns you with its tail|🐾|3
+BARRACUDA|Long fast fish with sharp teeth|🐾|3
+CHINCHILLA|Rodent with very soft fur|🐾|3
+COCKATOO|Parrot with a crest on its head|🐾|3
+DROMEDARY|One-humped camel|🐾|3
+IGUANA|Large green lizard kept as a pet|🐾|3
+JAGUAR|Spotted big cat of the Americas|🐾|3
+LEMUR|Ring-tailed animal from Madagascar|🐾|3
+MACAW|Large bright parrot|🐾|3
+OCELOT|Small wild spotted cat|🐾|3
+PUFFIN|Sea bird with a colorful beak|🐾|3
+QUOKKA|Small smiling marsupial from Australia|🐾|3
+TAPIR|Pig-like animal with a short trunk|🐾|3
+TOUCAN|Bird with a giant colorful bill|🐾|3
+WOMBAT|Burrowing Australian marsupial|🐾|3
+CAPYBARA|The largest rodent in the world|🐾|3
+MANDRILL|Monkey with a blue and red face|🐾|3
+MARMOSET|Tiny monkey|🐾|3
+PIRANHA|River fish with razor teeth|🐾|3
+ANACONDA|Giant South American snake|🐾|3
+CORMORANT|Diving bird that fishes underwater|🐾|3`],
 food:['Food','🍕',`PIZZA|Cheesy slices with toppings|🍕|1
 APPLE|Crunchy red or green fruit|🍎|1
 CAKE|Birthday treat with candles|🎂|1
@@ -642,7 +759,124 @@ CROISSANT|Flaky, crescent-shaped pastry|🥐|3
 ZUCCHINI|Long green summer squash|🥒|3
 BRUSCHETTA|Toasted bread topped with tomato|🍅|3
 GUACAMOLE|Dip made from mashed avocado|🥑|3
-POMEGRANATE|Fruit packed with juicy red seeds|🔴|3`],
+POMEGRANATE|Fruit packed with juicy red seeds|🔴|3
+EGG|Comes from a hen|🥚|1
+MILK|White drink from cows|🥛|1
+CORN|Yellow food that grows on a cob|🌽|1
+RICE|Tiny white grains you cook in water|🍚|1
+SOUP|Hot food you eat with a spoon|🍲|1
+BREAD|You slice it to make toast|🍞|1
+GRAPE|Small round fruit that grows in bunches|🍇|1
+PEACH|Fuzzy orange fruit|🍑|1
+LEMON|Sour yellow fruit|🍋|1
+DONUT|Round treat with a hole in it|🍩|1
+CHEESE|Made from milk and loved by mice|🧀|1
+CARROT|Orange veggie that rabbits love|🥕|1
+HOTDOG|Sausage in a long bun|🌭|1
+CEREAL|Breakfast you pour milk on|🥣|1
+WAFFLE|Breakfast food with little squares|🧇|1
+HAMBURGER|Beef patty in a bun|🍔|2
+PINEAPPLE|Spiky tropical fruit|🍍|2
+STRAWBERRY|Red fruit with seeds on the outside|🍓|2
+CUCUMBER|Long green veggie used for pickles|🥒|2
+MUSHROOM|It grows in the shade and has a cap|🍄|2
+MEATBALL|Round bite that goes on pasta|🍝|2
+CUPCAKE|Tiny cake for one person|🧁|2
+LASAGNA|Layers of pasta, sauce and cheese|🍝|2
+OATMEAL|Warm breakfast made from oats|🥣|2
+CHOCOLATE|Sweet treat made from cocoa|🍫|2
+BLUEBERRY|Tiny blue fruit often found in muffins|🫐|2
+SMOOTHIE|Blended fruit drink|🥤|2
+MILKSHAKE|Ice cream blended into a drink|🥤|2
+TORTILLA|Flat round bread for wraps|🫓|2
+CAULIFLOWER|White veggie that looks like a cloud|🥦|3
+ASPARAGUS|Green spear-shaped vegetable|🌱|3
+CINNAMON|Brown spice used on sweet rolls|🌰|3
+ENCHILADA|Rolled tortilla baked in sauce|🌶️|3
+RATATOUILLE|French dish of stewed vegetables|🍆|3
+TIRAMISU|Italian dessert made with coffee|🍰|3
+PISTACHIO|Green nut inside a split shell|🥜|3
+ARTICHOKE|Vegetable with layers of tough leaves|🌿|3
+CANTALOUPE|Orange melon with a rough rind|🍈|3
+MOZZARELLA|Stretchy cheese used on pizza|🧀|3
+WORCESTERSHIRE|Dark sauce with a hard-to-say name|🥫|3
+SOURDOUGH|Tangy bread made with a starter|🍞|3
+HAM|Pink meat from a pig|🍕|1
+JAM|Sweet fruit spread|🍕|1
+PIE|Baked dessert with a crust|🍕|1
+NUT|Squirrels store these|🍕|1
+BUN|Bread that holds a burger|🍕|1
+BEAN|Small seed you eat, often in chili|🍕|1
+BEEF|Meat from a cow|🍕|1
+CHIP|Thin crunchy snack|🍕|1
+FUDGE|Soft chocolate candy|🍕|1
+HONEY|Sweet and made by bees|🍕|1
+JELLY|Wobbly spread that goes with peanut butter|🍕|1
+JUICE|Drink squeezed from fruit|🍕|1
+SALAD|Bowl of leafy greens|🍕|1
+SUGAR|It makes things sweet|🍕|1
+TOAST|Browned bread|🍕|1
+BACON|Crispy breakfast strips|🍕|1
+CANDY|Sweet treat|🍕|1
+MELON|Big round juicy fruit|🍕|1
+ONION|It can make you cry when you cut it|🍕|1
+PASTA|Noodles from Italy|🍕|1
+BUTTER|Yellow spread made from cream|🍕|1
+CHERRY|Small red fruit with a pit|🍕|1
+MUFFIN|Small baked breakfast cake|🍕|1
+NOODLE|Long thin strip of pasta|🍕|1
+ORANGE|Fruit named for its color|🍕|1
+PEPPER|Black spice next to the salt|🍕|1
+PICKLE|Cucumber soaked in brine|🍕|1
+POTATO|Brown veggie used for fries|🍕|1
+TOMATO|Red and used in ketchup|🍕|1
+YOGURT|Creamy snack made from milk|🍕|1
+BISCUIT|Fluffy bread served with gravy|🍕|2
+BROWNIE|Chewy chocolate square|🍕|2
+CHICKEN NUGGET|Bite-size breaded bird meat|🍕|2
+COLESLAW|Shredded cabbage salad|🍕|2
+CORNBREAD|Yellow bread from ground maize|🍕|2
+DUMPLING|Dough pocket with filling|🍕|2
+FRENCH FRIES|Fried potato strips|🍕|2
+GRANOLA|Crunchy oat mix|🍕|2
+ICE CREAM|Frozen sweet treat in a cone|🍕|2
+KETCHUP|Red sauce for fries|🍕|2
+LEMONADE|Sweet and sour summer drink|🍕|2
+MEATLOAF|Ground beef baked in a pan|🍕|2
+MUSTARD|Yellow sauce for hot dogs|🍕|2
+OMELET|Eggs folded over fillings|🍕|2
+PEANUT BUTTER|Spread made from ground nuts|🍕|2
+PEPPERONI|Round spicy pizza topping|🍕|2
+RASPBERRY|Red bumpy berry|🍕|2
+SAUSAGE|Ground meat in a casing|🍕|2
+SPINACH|Leafy green that made Popeye strong|🍕|2
+TANGERINE|Small easy-to-peel citrus|🍕|2
+BLACKBERRY|Dark bumpy berry|🍕|2
+MARSHMALLOW|Soft white treat for roasting|🍕|2
+GRILLED CHEESE|Toasted sandwich with a melted middle|🍕|2
+APPLESAUCE|Mashed fruit you eat with a spoon|🍕|2
+CHEESECAKE|Rich dessert with a graham crust|🍕|3
+CRANBERRY|Tart red fruit served at Thanksgiving|🍕|3
+EGGPLANT|Purple vegetable|🍕|3
+FETTUCCINE|Flat ribbon pasta|🍕|3
+GINGERBREAD|Spiced holiday cookie|🍕|3
+HAZELNUT|Round nut often paired with chocolate|🍕|3
+JALAPENO|Spicy green pepper|🍕|3
+KIELBASA|Polish sausage|🍕|3
+LINGUINE|Long flat pasta, narrower than fettuccine|🍕|3
+MINESTRONE|Italian vegetable soup|🍕|3
+NECTARINE|Smooth-skinned cousin of the peach|🍕|3
+PAPRIKA|Red spice made from dried peppers|🍕|3
+PROSCIUTTO|Thin-sliced Italian cured ham|🍕|3
+QUICHE|Savory egg pie|🍕|3
+RHUBARB|Tart red stalk used in pie|🍕|3
+SAUERKRAUT|Fermented cabbage|🍕|3
+TORTELLINI|Ring-shaped stuffed pasta|🍕|3
+VINAIGRETTE|Oil and vinegar dressing|🍕|3
+BUTTERSCOTCH|Candy flavor made from brown sugar|🍕|3
+PUMPERNICKEL|Dark rye bread|🍕|3
+CAPPUCCINO|Espresso with steamed milk foam|🍕|3
+HORSERADISH|Root that makes a spicy sauce|🍕|3`],
 space:['Space','🚀',`SUN|Star at the center of our solar system|☀️|1
 MOON|Circles the Earth and lights the night|🌙|1
 STAR|Twinkles in the night sky|⭐|1
@@ -662,7 +896,96 @@ NEBULA|Giant cloud of gas and dust where stars form|🌌|3
 ASTEROID BELT|Ring of space rocks between Mars and Jupiter|🪨|3
 CONSTELLATION|Pattern of stars, like the Big Dipper|🪙|3
 ECLIPSE|When one object blocks another's light|🌑|3
-SUPERNOVA|Huge explosion of a dying star|💥|3`],
+SUPERNOVA|Huge explosion of a dying star|💥|3
+SKY|Look up to see it|☁️|1
+MARS|The red planet|🔴|1
+EARTH|The planet we live on|🌍|1
+ALIEN|A make-believe visitor from another world|👽|1
+VENUS|The hottest planet|🌕|1
+PLUTO|Tiny dwarf planet far from the sun|🧊|1
+RINGS|Saturn is famous for these|🪐|1
+SHIP|Astronauts ride in a space one|🚀|1
+NIGHT|When the stars come out|🌙|1
+LIGHT|Stars shine with it|🪙|1
+CRATER|Bowl-shaped hole on the moon|🌑|1
+SPACE|Where the stars and planets are|🌌|1
+LAUNCH|When a rocket blasts off|🚀|1
+SATELLITE|It circles the Earth and sends signals|🛰️|2
+MERCURY|Closest planet to the sun|☀️|2
+NEPTUNE|Blue planet farthest from the sun|🔵|2
+URANUS|Planet that spins on its side|🪐|2
+SPACESUIT|What an astronaut wears outside|🧑‍🚀|2
+COUNTDOWN|Ten, nine, eight, all the way to liftoff|⏱️|2
+STARLIGHT|The glow that reaches us from far away suns|🪙|2
+MOONLIGHT|Soft glow in the night sky|🌙|2
+UNIVERSE|Everything that exists, everywhere|🌌|2
+SHUTTLE|Reusable spacecraft that landed like a plane|🚀|2
+BLACK HOLE|Its gravity is so strong that light cannot escape|🕳️|2
+SOLAR SYSTEM|The sun and everything that circles it|☀️|2
+ATMOSPHERE|Layer of gases around a planet|🌍|3
+OBSERVATORY|Building that holds a giant telescope|🔭|3
+ANDROMEDA|The nearest large galaxy to ours|🌌|3
+EXOPLANET|A world that circles a different star|🪐|3
+METEORITE|Space rock that reaches the ground|☄️|3
+EQUINOX|Day and night are about equal|🌗|3
+COSMONAUT|Russian word for a space traveler|🧑‍🚀|3
+CELESTIAL|Having to do with the sky and stars|🌠|3
+PULSAR|Spinning star that sends out beams|💫|3
+INTERSTELLAR|Between the stars|🌌|3
+SPACE STATION|A home that orbits the Earth|🛰️|3
+SUNSET|When the day ends|🚀|1
+SHINE|What stars do|🚀|1
+DARK|What the night sky is|🚀|1
+DUST|Tiny bits floating in space|🚀|1
+BEAM|A ray of light|🚀|1
+FLY|What a rocket does|🚀|1
+GLOW|A soft light|🚀|1
+MOONS|Jupiter has dozens of these|🚀|1
+STARS|Tiny lights in the night sky|🚀|1
+FLOAT|What astronauts do with no gravity|🚀|1
+ROVER|Robot car on Mars|🚀|1
+BLAST|What happens at liftoff|🚀|1
+TWINKLE|What a little star does in the song|🚀|1
+ZERO|The last number in a countdown|🚀|1
+SPIN|What the Earth does every day|🚀|1
+NORTH STAR|It helps travelers find their way|🚀|2
+BIG DIPPER|Star pattern shaped like a ladle|🚀|2
+FULL MOON|When the whole lunar face is lit|🚀|2
+SHOOTING STAR|Streak of light across the night|🚀|2
+SPACE WALK|When an astronaut goes outside|🚀|2
+MOON ROCK|Sample brought back by Apollo|🚀|2
+STARGAZING|Looking up at the night sky for fun|🚀|2
+LIFTOFF|The moment a rocket leaves the pad|🚀|2
+CAPSULE|Small craft that carries the crew|🚀|2
+MISSION|A planned trip into space|🚀|2
+OXYGEN TANK|It lets an astronaut breathe|🚀|2
+SUNSPOT|Dark patch on the sun|🚀|2
+TWILIGHT|Dim light just after sunset|🚀|2
+WEIGHTLESS|How you feel in orbit|🚀|2
+CRESCENT|Thin curved moon shape|🚀|2
+DAYLIGHT|What the sun gives us|🚀|2
+HORIZON|Where the sky meets the land|🚀|2
+LUNAR|Having to do with the moon|🚀|2
+SOLAR|Having to do with the sun|🚀|2
+COSMOS|Another word for the universe|🚀|3
+QUASAR|Extremely bright distant object|🚀|3
+ZENITH|The point straight overhead|🚀|3
+AURORA|Glowing lights near the poles|🚀|3
+APOLLO|Program that put people on the moon|🚀|3
+HUBBLE|Famous telescope in orbit|🚀|3
+VOYAGER|Probe that left our solar system|🚀|3
+ASTROPHYSICS|Science of how stars and galaxies work|🚀|3
+RADIATION|Energy that travels through space|🚀|3
+TRAJECTORY|The path a spacecraft follows|🚀|3
+PROPULSION|What pushes a rocket forward|🚀|3
+HELIOSPHERE|The bubble around our sun|🚀|3
+MAGNETOSPHERE|The magnetic shield around Earth|🚀|3
+SPECTROSCOPE|Tool that splits starlight into colors|🚀|3
+RED GIANT|A huge old cooling star|🚀|3
+WHITE DWARF|Small dense leftover of a star|🚀|3
+DARK MATTER|Unseen stuff that holds galaxies together|🚀|3
+SOLSTICE|Longest or shortest day of the year|🚀|3
+HALF MOON|When the lunar face looks like the letter D|🚀|2`],
 sports:['Sports','⚽',`BALL|Round thing you kick or throw|⚽|1
 BAT|Used to hit a baseball|⚾|1
 GOAL|Get the ball in the net to score one|🥅|1
@@ -681,7 +1004,105 @@ MARATHON|Running race of about 26 miles|🏃|3
 ARCHERY|Sport of shooting arrows at a target|🏹|3
 BADMINTON|Racket sport with a shuttlecock|🏸|3
 SNOWBOARDING|Riding down a snowy hill on one board|🏂|3
-CHAMPIONSHIP|The big final win of the season|🏆|3`],
+CHAMPIONSHIP|The big final win of the season|🏆|3
+RUN|Move fast on your feet|🏃|1
+KICK|What you do to a soccer ball|🦵|1
+JUMP|Leap up off the ground|🤸|1
+TEAM|A group that plays together|🤝|1
+GAME|What two teams play|🎮|1
+RACE|See who is fastest|🏁|1
+GOLF|Hit a small ball into a hole|⛳|1
+WIN|What you do when you score the most|🏆|1
+CATCH|Grab the ball out of the air|🧤|1
+THROW|Send the ball through the air|🤾|1
+SCORE|The points each team has|🔢|1
+COACH|The person who leads the team|📋|1
+HELMET|It protects your head|⛑️|1
+TROPHY|Shiny prize for the winner|🏆|1
+BASEBALL|Sport with bases, a bat and a diamond|⚾|2
+HOCKEY|Sport played with a puck|🏒|2
+BOWLING|Roll a ball to knock down pins|🎳|2
+SURFING|Riding ocean waves on a board|🏄|2
+KARATE|Martial art with colored belts|🥋|2
+CYCLING|Racing on a bicycle|🚴|2
+WRESTLING|Sport where you pin your opponent|🤼|2
+HOME RUN|Hit the ball out of the park|⚾|2
+SLAM DUNK|Jump up and jam the ball through the hoop|🏀|2
+GOALKEEPER|Player who guards the net|🧤|2
+SCOREBOARD|It shows who is winning|🔢|2
+SOFTBALL|Like baseball with a bigger ball|🥎|2
+SWIMMING|Racing through the water|🏊|2
+OLYMPICS|World games held every four years|🥇|3
+TRIATHLON|Swim, bike and run in one race|🏊|3
+LACROSSE|Sport played with netted sticks|🥍|3
+QUARTERBACK|Player who throws the passes|🏈|3
+EQUESTRIAN|Sports done on horseback|🏇|3
+DECATHLON|Ten track and field events|🏃|3
+FENCING|Sport with thin swords and masks|🤺|3
+SPORTSMANSHIP|Playing fair and being a good loser|🤝|3
+PENALTY KICK|Free shot at the goal from the spot|⚽|3
+WATER POLO|Team ball game played in a pool|🤽|3
+PICKLEBALL|Paddle sport played on a small court|🏓|3
+UMPIRE|The official who calls balls and strikes|⚾|3
+HIT|What a bat does to a ball|⚽|1
+NET|The ball goes into it|⚽|1
+RINK|Where you ice skate|⚽|1
+POOL|Where swimmers race|⚽|1
+DIVE|Jump headfirst into water|⚽|1
+SHOT|A try at the basket|⚽|1
+PASS|Throw the ball to a teammate|⚽|1
+FIELD|Grassy place to play|⚽|1
+COURT|Where basketball is played|⚽|1
+TRACK|Runners race around it|⚽|1
+MEDAL|Prize you wear around your neck|⚽|1
+PUCK|Black disk used in hockey|⚽|1
+SKI|Slide down a snowy hill|⚽|1
+RUNNER|Person in a race|⚽|1
+PLAYER|A member of the team|⚽|1
+WINNER|The one who comes in first|⚽|1
+JERSEY|Team shirt with a number|⚽|1
+GLOVES|They protect your hands|⚽|1
+PADDLE|You use it to move a canoe|⚽|1
+RACKET|You swing it in tennis|⚽|2
+STADIUM|Huge place where fans watch|⚽|2
+PITCHER|Player who throws to the batter|⚽|2
+CATCHER|Player behind home plate|⚽|2
+DEFENSE|The side trying to stop a score|⚽|2
+OFFENSE|The side trying to score|⚽|2
+OVERTIME|Extra play when the score is tied|⚽|2
+HALFTIME|The break in the middle|⚽|2
+TIMEOUT|A short pause the coach calls|⚽|2
+FREE THROW|Unguarded shot from the line|⚽|2
+FIELD GOAL|Three-point kick through the uprights|⚽|2
+STRIKEOUT|Three misses and the batter is done|⚽|2
+JUMP ROPE|You skip over it|⚽|2
+ROLLER SKATES|Shoes with four wheels|⚽|2
+ICE SKATING|Gliding on a frozen rink|⚽|2
+ROCK CLIMBING|Going up a wall with ropes|⚽|2
+CHEERLEADER|Leads the crowd with chants|⚽|2
+MOUTHGUARD|It protects your teeth|⚽|2
+RELAY RACE|Runners hand off a baton|⚽|2
+HIGH JUMP|Leap over a raised bar|⚽|2
+LONG JUMP|Leap as far as you can into sand|⚽|2
+DODGEBALL|Game where you avoid being hit|⚽|2
+KICKBALL|Like baseball but with your foot|⚽|2
+TABLE TENNIS|Also called ping pong|⚽|3
+CROSS COUNTRY|Long-distance running over trails|⚽|3
+POLE VAULT|Using a long stick to clear a bar|⚽|3
+SHOT PUT|Throwing a heavy metal ball|⚽|3
+JAVELIN|Spear thrown for distance|⚽|3
+HURDLES|Barriers runners leap over|⚽|3
+REGATTA|A series of boat races|⚽|3
+SLALOM|Ski race weaving through gates|⚽|3
+PELOTON|The main pack in a bike race|⚽|3
+SCRIMMAGE|A practice game|⚽|3
+TOURNAMENT|Series of games to find a champion|⚽|3
+UNDERDOG|The one not expected to win|⚽|3
+ENDURANCE|The ability to keep going|⚽|3
+BIATHLON|Skiing combined with shooting|⚽|3
+CURLING|Sliding stones on ice with brooms|⚽|3
+RUGBY|Rough game with an oval ball and no pads|⚽|3
+CRICKET|Bat and ball game with wickets|⚽|3`],
 bible:['Bible','📖',`NOAH|Built an ark before the great flood|🚢|1
 ADAM|The first man God made|🌳|1
 JONAH|Swallowed by a huge fish|🐋|1
@@ -705,7 +1126,117 @@ PENTECOST|Day the Holy Spirit came on the believers|🔥|3
 NEHEMIAH|Led the rebuilding of Jerusalem's walls|🧱|3
 GALATIANS|Paul's letter that lists the fruit of the Spirit|🍇|3
 FRUIT OF THE SPIRIT|Love, joy, peace, patience and more|🍇|3
-JERUSALEM|City where the temple stood|🏛️|3`],
+JERUSALEM|City where the temple stood|🏛️|3
+EVE|The first woman|🍎|1
+MARY|The mother of Jesus|👶|1
+RUTH|She stayed with Naomi|🌾|1
+PAUL|He wrote many letters to churches|✉️|1
+JOHN|He baptized people in the Jordan River|💧|1
+PETER|Fisherman who walked on water toward Jesus|🚣|1
+JESUS|The Son of God|✝️|1
+ANGEL|Messenger from God|😇|1
+CROSS|Where Jesus gave His life|✝️|1
+PRAY|Talking to God|🙏|1
+LAMB|A young sheep|🐑|1
+GARDEN|Eden was one|🌳|1
+JOSEPH|He had a coat of many colors|🧥|1
+ABRAHAM|God promised him descendants like the stars|⭐|2
+SOLOMON|King known for his wisdom|👑|2
+ELIJAH|Prophet who called down fire on Mount Carmel|🔥|2
+JOSHUA|He led Israel around Jericho|🎺|2
+GIDEON|He won with only three hundred men|🏺|2
+MIRIAM|The sister of Moses|🥁|2
+SHEPHERD|David's job before he was king|🐑|2
+MIRACLE|A mighty work only God can do|🪙|2
+BAPTISM|Going under the water to follow Jesus|💧|2
+PRODIGAL|The son who left home and came back|🏠|2
+JERICHO|City whose walls fell down|🧱|2
+NAZARETH|Town where Jesus grew up|🏘️|2
+GALILEE|Sea where Jesus calmed the storm|🌊|2
+GOOD SAMARITAN|He stopped to help a hurt stranger|🩹|2
+PHILIPPIANS|Letter that says to rejoice in the Lord always|✉️|3
+RESURRECTION|Jesus rising from the dead|🌅|3
+TABERNACLE|The tent where Israel worshiped God|⛺|3
+GETHSEMANE|Garden where Jesus prayed before the cross|🌿|3
+REVELATION|The last book of the Bible|📜|3
+DEUTERONOMY|The fifth book of the Bible|📜|3
+BEATITUDES|The blessed sayings in the Sermon on the Mount|⛰️|3
+CORINTHIANS|Its famous chapter is all about love|❤️|3
+ECCLESIASTES|Book that says there is a time for everything|⏳|3
+MELCHIZEDEK|King of Salem and priest of God Most High|👑|3
+HOLY SPIRIT|The Helper Jesus promised to send|🕊️|3
+ARMOR OF GOD|Described piece by piece in Ephesians six|🛡️|3
+GOD|He made the heavens and the earth|📖|1
+ABEL|Brother who was a shepherd|📖|1
+CAIN|The first son of Adam and Eve|📖|1
+LOVE|God is this, says First John|📖|1
+FAITH|Believing without seeing|📖|1
+GRACE|God's gift we cannot earn|📖|1
+PEACE|Jesus said He leaves this with us|📖|1
+BIBLE|God's written word|📖|1
+KING|David was one|📖|1
+DOVE|Bird Noah sent from the ark|📖|1
+BOAT|The disciples were in one during the storm|📖|1
+TENT|Abraham lived in one|📖|1
+SLING|David used one against a giant|📖|1
+STONE|It was rolled away from the tomb|📖|1
+CROWN|Jesus wore one made of thorns|📖|1
+ISAAC|The promised son of Abraham|📖|1
+JACOB|He wrestled and got the name Israel|📖|1
+SARAH|She laughed when told she would have a son|📖|1
+AARON|Brother of Moses and first high priest|📖|2
+CALEB|Faithful spy alongside Joshua|📖|2
+JAMES|Brother of John and son of Zebedee|📖|2
+LUKE|Doctor who wrote a Gospel and Acts|📖|2
+MARK|Writer of the shortest Gospel|📖|2
+MATTHEW|Tax collector who became a disciple|📖|2
+THOMAS|Disciple who wanted to see the nail marks|📖|2
+ANDREW|He brought his brother Peter to Jesus|📖|2
+TIMOTHY|Young pastor Paul mentored|📖|2
+LAZARUS|Jesus raised him after four days|📖|2
+MARTHA|Sister who was busy serving|📖|2
+REBEKAH|Wife of Isaac|📖|2
+RACHEL|Jacob worked years to marry her|📖|2
+HANNAH|She prayed for a son and had Samuel|📖|2
+SAMUEL|Boy who heard God call in the night|📖|2
+JORDAN|River where Jesus was baptized|📖|2
+EGYPT|Land Israel left in the Exodus|📖|2
+TEMPLE|Solomon built it in Jerusalem|📖|2
+MANNA|Bread from heaven in the wilderness|📖|2
+EXODUS|Second book of the Bible|📖|2
+GENESIS|First book of the Bible|📖|2
+PROVERBS|Book of wise sayings|📖|2
+GOSPEL|The good news|📖|2
+APOSTLE|One sent out by Jesus|📖|2
+PROPHET|One who speaks God's message|📖|2
+COVENANT|A binding promise from God|📖|2
+PASSOVER|Feast that remembers leaving Egypt|📖|2
+RED SEA|God parted it for Israel|📖|2
+LAST SUPPER|Jesus shared it before the cross|📖|2
+LORDS PRAYER|It begins with Our Father|📖|2
+MUSTARD SEED|Jesus compared small faith to it|📖|2
+BARNABAS|His name means son of encouragement|📖|3
+BARTIMAEUS|Blind beggar healed near Jericho|📖|3
+CORNELIUS|Roman centurion Peter visited|📖|3
+NICODEMUS|Pharisee who came to Jesus at night|📖|3
+PRISCILLA|She and Aquila taught Apollos|📖|3
+HEZEKIAH|King whose life was extended fifteen years|📖|3
+JEHOSHAPHAT|King who sent singers ahead of the army|📖|3
+METHUSELAH|The oldest man in the Bible|📖|3
+ZECHARIAH|Father of John the Baptist|📖|3
+LEVITICUS|Third book of the Bible|📖|3
+LAMENTATIONS|Sorrowful book after Jerusalem fell|📖|3
+THESSALONIANS|Letters about the Lord's return|📖|3
+REDEMPTION|Being bought back|📖|3
+SANCTIFICATION|Being set apart and made holy|📖|3
+RIGHTEOUSNESS|Right standing with God|📖|3
+TRANSFIGURATION|When Jesus shone on the mountain|📖|3
+ASCENSION|Jesus rising to heaven|📖|3
+GREAT COMMISSION|Go and make disciples of all nations|📖|3
+DAMASCUS ROAD|Where Saul met the risen Jesus|📖|3
+UPPER ROOM|Where the disciples waited and prayed|📖|3
+MOUNT SINAI|Where Moses received the law|📖|3
+ROAD TO EMMAUS|Two disciples walked it with the risen Jesus|📖|3`],
 nature:['Nature','🌿',`TREE|Has a trunk, branches and leaves|🌳|1
 LEAF|Turns colors and falls in autumn|🍂|1
 RAIN|Water falling from clouds|🌧️|1
@@ -725,7 +1256,108 @@ THUNDERSTORM|Rain with lightning and booms|⛈️|3
 GLACIER|Slow-moving river of ice|🧊|3
 MEADOW|Open field of grass and wildflowers|🌼|3
 TUNDRA|Cold, treeless land near the Arctic|❄️|3
-AVALANCHE|Snow rushing down a mountain|🏔️|3`],
+AVALANCHE|Snow rushing down a mountain|🏔️|3
+MUD|Wet dirt|🟤|1
+ROCK|Hard piece of the ground|🪨|1
+SNOW|White flakes that fall in winter|❄️|1
+WIND|Moving air|💨|1
+POND|Small body of still water|🦆|1
+HILL|Smaller than a mountain|⛰️|1
+LAKE|Large body of water with land all around|🏞️|1
+SAND|Tiny grains on the beach|🏖️|1
+CLOUD|White and fluffy in the sky|☁️|1
+GRASS|Green and covers the lawn|🌱|1
+BEACH|Sandy place by the ocean|🏖️|1
+FOREST|Lots and lots of trees|🌲|1
+ISLAND|Land with water all around it|🏝️|1
+DESERT|Dry land with very little rain|🏜️|2
+JUNGLE|Thick tropical forest|🌴|2
+LIGHTNING|Bright flash in a storm|⚡|2
+HURRICANE|Huge spinning ocean storm|🌀|2
+EARTHQUAKE|When the ground shakes|🌍|2
+SUNRISE|The start of the day|🌅|2
+PINECONE|It holds the seeds of an evergreen|🌲|2
+BLIZZARD|Heavy snowstorm with strong wind|🌨️|2
+SEASHELL|Found on the beach, once a home|🐚|2
+WILDFLOWER|Bloom that grows without being planted|🌼|2
+CORAL REEF|Colorful underwater home for fish|🪸|2
+STALACTITE|It hangs from the roof of a cave|🕳️|3
+ECOSYSTEM|Living things and their home working together|🌎|3
+PENINSULA|Land with water on three sides|🗺️|3
+EVERGREEN|Tree that keeps its needles all year|🌲|3
+WETLANDS|Marshy land full of wildlife|🦆|3
+GEYSER|Hot spring that shoots water into the air|⛲|3
+SAVANNA|Grassy plain with scattered trees|🦒|3
+ARCHIPELAGO|A chain of islands|🏝️|3
+PERMAFROST|Ground that stays frozen all year|🧊|3
+TRIBUTARY|A stream that flows into a bigger river|🏞️|3
+SEDIMENT|Bits of rock and soil that settle in water|🪨|3
+BUD|A flower before it opens|🌿|1
+DEW|Morning drops on the grass|🌿|1
+FOG|A cloud on the ground|🌿|1
+LOG|A fallen tree trunk|🌿|1
+NEST|A bird's home|🌿|1
+ROOT|The part of a plant underground|🌿|1
+MOSS|Soft green carpet on rocks|🌿|1
+VINE|Plant that climbs|🌿|1
+WAVE|It rolls onto the beach|🌿|1
+BUSH|Small woody plant|🌿|1
+CAVE|Dark hole in a hillside|🌿|1
+DIRT|What plants grow in|🌿|1
+PINE|Tree with needles and cones|🌿|1
+ROSE|Flower with thorns|🌿|1
+STORM|Wind, rain and thunder|🌿|1
+STREAM|A small river|🌿|1
+BREEZE|A gentle wind|🌿|1
+ACORN|The nut of an oak|🌿|1
+DAISY|White flower with a yellow center|🌿|1
+TULIP|Cup-shaped spring flower|🌿|1
+PEBBLE|A small smooth stone|🌿|1
+PUDDLE|Small pool after rain|🌿|1
+BRANCH|An arm of a tree|🌿|1
+VALLEY|Low land between hills|🌿|2
+SPRING|Season when flowers bloom|🌿|2
+SUMMER|The hottest season|🌿|2
+AUTUMN|Season of falling leaves|🌿|2
+WINTER|The coldest season|🌿|2
+THUNDER|The boom after lightning|🌿|2
+DROUGHT|A long time without rain|🌿|2
+BOULDER|A very large rock|🌿|2
+MEADOWLARK|Songbird of open fields|🌿|2
+SEAWEED|Plant that grows in the ocean|🌿|2
+TIDE POOL|Small pocket of sea left on the rocks|🌿|2
+OAK TREE|It grows from an acorn|🌿|2
+MAPLE LEAF|Symbol on the flag of Canada|🌿|2
+DANDELION|Yellow weed you can blow on|🌿|2
+HONEYCOMB|Wax cells inside a hive|🌿|2
+FULL BLOOM|When a flower is completely open|🌿|2
+FIREFLY|Insect that glows at night|🌿|2
+ICEBERG|Floating mountain of ice|🌿|2
+LAGOON|Shallow water separated from the sea|🌿|2
+SWAMP|Wet muddy land with trees|🌿|2
+CLIFF|Steep rock face|🌿|2
+MARSH|Grassy wetland|🌿|2
+SEQUOIA|Giant California tree|🌿|3
+BAYOU|Slow swampy waterway in the South|🌿|3
+DELTA|Where a river fans out into the sea|🌿|3
+FJORD|Narrow sea inlet between cliffs|🌿|3
+MESA|Flat-topped hill with steep sides|🌿|3
+OASIS|Green spot with water in a desert|🌿|3
+PRAIRIE|Wide flat grassland|🌿|3
+RAVINE|Narrow steep valley|🌿|3
+ESTUARY|Where a river meets the tide|🌿|3
+MONSOON|Seasonal wind that brings heavy rain|🌿|3
+SINKHOLE|Sudden hole in the ground|🌿|3
+WATERSHED|Land that drains into one river|🌿|3
+WILDERNESS|Wild land untouched by people|🌿|3
+POLLINATION|How pollen moves between flowers|🌿|3
+DECIDUOUS|Trees that drop their leaves each year|🌿|3
+HIBERNATION|Sleeping through the winter|🌿|3
+MIGRATION|Seasonal travel of animals|🌿|3
+BIODIVERSITY|The variety of life in a place|🌿|3
+TIMBERLINE|The height above which trees do not grow|🌿|3
+UNDERGROWTH|Plants beneath the forest trees|🌿|3
+SAND DUNE|Hill shaped by desert wind|🌿|2`],
 home:['Home','🏠',`BED|Where you sleep at night|🛏️|1
 CHAIR|You sit on it|🪑|1
 LAMP|Lights up a room|💡|1
@@ -745,7 +1377,119 @@ REFRIGERATOR|Keeps food cold|🧊|3
 CHANDELIER|Fancy hanging light|🪙|3
 THERMOSTAT|Controls the temperature|🌡️|3
 WARDROBE|Tall cabinet for clothes|👔|3
-VACUUM CLEANER|Sucks up dust and crumbs|🧹|3`],
+VACUUM CLEANER|Sucks up dust and crumbs|🧹|3
+CUP|You drink from it|🥤|1
+RUG|Small carpet on the floor|🟫|1
+KEY|It unlocks the door|🔑|1
+FORK|You eat with it|🍴|1
+SINK|Where you wash your hands|🚰|1
+DESK|Where you do homework|🪑|1
+BOWL|Holds soup or cereal|🥣|1
+SOAP|It gets you clean|🧼|1
+ROOF|The top of the house|🏠|1
+WALL|It holds up the roof|🧱|1
+TABLE|Where the family eats|🍽️|1
+CLOCK|It tells the time|🕰️|1
+TOWEL|You dry off with it|🧺|1
+WINDOW|You look outside through it|🪟|1
+MIRROR|You see yourself in it|🪞|1
+KITCHEN|Room where meals are cooked|🍳|2
+BEDROOM|Room where you sleep|🛏️|2
+GARAGE|Where the car is parked|🚗|2
+DOORBELL|Guests ring it|🔔|2
+BOOKSHELF|It holds your stories|📚|2
+MAILBOX|Letters arrive here|📬|2
+FIREPLACE|Cozy spot for burning logs|🔥|2
+BACKYARD|Outdoor space behind the house|🌳|2
+DRESSER|Furniture with drawers for clothes|👕|2
+FLASHLIGHT|Handy when the power goes out|🔦|2
+TELEVISION|Screen the family watches|📺|2
+CUPBOARD|Cabinet where dishes are kept|🍽️|2
+LAUNDRY|Dirty clothes waiting to be washed|🧺|2
+COFFEE MAKER|Brews the morning cup|☕|3
+DEHUMIDIFIER|Machine that pulls moisture from the air|💧|3
+FURNITURE|Chairs, tables, beds and sofas|🛋️|3
+BALCONY|Small outdoor platform on an upper floor|🏢|3
+PANTRY|Small room where food is stored|🥫|3
+INSULATION|Material in the walls that holds in heat|🧱|3
+WHEELBARROW|One-wheeled cart for yard work|🌱|3
+EXTENSION CORD|It lets a plug reach farther|🔌|3
+THRESHOLD|The strip at the bottom of a doorway|🚪|3
+BANISTER|Handrail along the stairs|🪜|3
+FAUCET|Turn it to get water|🚰|3
+RADIATOR|Metal heater that warms a room|♨️|3
+MAT|You wipe your feet on it|🏠|1
+PAN|You fry eggs in it|🏠|1
+POT|You boil water in it|🏠|1
+MUG|Cup for hot cocoa|🏠|1
+FAN|It blows air to cool you|🏠|1
+BIN|Where the trash goes|🏠|1
+TUB|You take a bath in it|🏠|1
+OVEN|It bakes cookies|🏠|1
+DISH|You eat off it|🏠|1
+VASE|It holds flowers|🏠|1
+SHELF|Flat board that holds books|🏠|1
+STOVE|You cook on top of it|🏠|1
+COUCH|Long soft seat in the living room|🏠|1
+FLOOR|You walk on it|🏠|1
+STAIRS|You climb them to go up|🏠|1
+PLATE|Round dish for dinner|🏠|1
+KNIFE|It cuts your food|🏠|1
+BROOM|You sweep with it|🏠|1
+PHONE|You call people with it|🏠|1
+PORCH|Covered spot by the front door|🏠|1
+FENCE|It goes around the yard|🏠|1
+BUCKET|It carries water|🏠|1
+CLOSET|Where clothes hang|🏠|1
+DRAWER|It slides out of a dresser|🏠|1
+HAMMER|Tool for pounding nails|🏠|1
+KETTLE|It whistles when the water boils|🏠|1
+LADDER|You climb it to reach high places|🏠|1
+NAPKIN|You wipe your mouth with it|🏠|1
+SHOWER|Water sprays down on you|🏠|1
+CEILING|The top of a room|🏠|2
+CHIMNEY|Smoke goes up it|🏠|2
+DOORKNOB|You turn it to get in|🏠|2
+DRIVEWAY|Where the car pulls in|🏠|2
+HALLWAY|Passage between rooms|🏠|2
+BASEMENT|The floor below ground|🏠|2
+ATTIC|Storage space under the roof|🏠|2
+BLENDER|It whirs up smoothies|🏠|2
+FREEZER|It keeps ice cream cold|🏠|2
+LIGHT BULB|It glows when you flip the switch|🏠|2
+NIGHTSTAND|Small table beside the bed|🏠|2
+ARMCHAIR|Comfy seat for one|🏠|2
+BUNK BED|Two beds stacked up|🏠|2
+MATTRESS|The soft part you sleep on|🏠|2
+SHOWER CURTAIN|It keeps water in the tub|🏠|2
+TOOLBOX|It holds wrenches and screwdrivers|🏠|2
+WELCOME MAT|It greets guests at the door|🏠|2
+PICTURE FRAME|It holds a family photo|🏠|2
+ROCKING CHAIR|Seat that sways back and forth|🏠|2
+LAWN MOWER|It cuts the grass|🏠|2
+WASHING MACHINE|It cleans your clothes|🏠|2
+DINING ROOM|Where the family eats together|🏠|2
+LIVING ROOM|Where the family relaxes|🏠|2
+ALARM CLOCK|It wakes you up|🏠|2
+SMOKE DETECTOR|It beeps when there is a fire|🏠|2
+GARBAGE DISPOSAL|It grinds scraps in the sink|🏠|3
+CEILING FAN|It spins overhead|🏠|3
+BREAKFAST NOOK|Small cozy eating corner|🏠|3
+MANTEL|Shelf above the fireplace|🏠|3
+OTTOMAN|Padded footstool|🏠|3
+PERGOLA|Open garden structure with beams|🏠|3
+GAZEBO|Small roofed shelter in a yard|🏠|3
+FOYER|The entry hall|🏠|3
+VERANDA|Long covered porch|🏠|3
+LINOLEUM|Smooth sheet flooring|🏠|3
+BLUEPRINT|The plan for building a house|🏠|3
+MORTGAGE|The loan for a house|🏠|3
+UPHOLSTERY|Fabric covering on furniture|🏠|3
+WAINSCOTING|Wood paneling on the lower wall|🏠|3
+BACKSPLASH|Tile behind the kitchen counter|🏠|3
+COUNTERTOP|Flat kitchen work surface|🏠|3
+CREDENZA|Long low cabinet|🏠|3
+DUPLEX|One building with two homes|🏠|3`],
 science:['Science','🔬',`MAGNET|Sticks to metal like magic|🧲|1
 ROBOT|Machine that can be programmed|🤖|1
 BUBBLE|Round, floating soapy ball|🫧|1
@@ -764,7 +1508,100 @@ MOLECULE|Two or more atoms joined together|⚗️|3
 PHOTOSYNTHESIS|How plants make food from sunlight|🌱|3
 HYPOTHESIS|An educated guess you can test|🤔|3
 CHEMISTRY|Science of what things are made of|🧪|3
-EVAPORATION|When water turns into vapor|♨️|3`],
+EVAPORATION|When water turns into vapor|♨️|3
+ICE|Frozen water|🧊|1
+HEAT|What makes things warm|🔥|1
+BUG|Small crawling creature|🐛|1
+SEED|A plant grows from it|🌱|1
+BONE|Hard part inside your body|🦴|1
+WATER|You drink it and fish swim in it|💧|1
+PLANT|It needs sun, soil and water|🪴|1
+BRAIN|The part of you that thinks|🧠|1
+HEART|It pumps your blood|❤️|1
+SOUND|What your ears pick up|🔊|1
+SPEED|How fast something moves|💨|1
+WEIGHT|How heavy something is|⚖️|1
+CRYSTAL|Solid with flat shiny sides|💎|2
+MAGNIFY|Make something look bigger|🔎|2
+BACTERIA|Tiny germs too small to see|🦠|2
+PLANKTON|Tiny drifting sea life|🌊|2
+INVENTION|Something new that someone created|💡|2
+MUSCLE|It lets your body move|💪|2
+CIRCUIT|The path electricity flows through|🔌|2
+PENDULUM|Weight that swings back and forth|🕰️|2
+HABITAT|The natural home of a plant or animal|🏞️|2
+LABORATORY|Room where experiments happen|🧪|3
+TEMPERATURE|How hot or cold something is|🌡️|3
+CHLOROPHYLL|What makes leaves green|🍃|3
+VELOCITY|Speed in a certain direction|➡️|3
+CONDENSATION|Water vapor turning back into drops|💧|3
+ORGANISM|Any living thing|🦠|3
+ELEMENT|Pure substance on the periodic table|⚛️|3
+METAMORPHOSIS|A caterpillar becoming a butterfly|🦋|3
+MAGNETISM|The force that pulls iron|🧲|3
+MITOCHONDRIA|The powerhouse of the cell|🔋|3
+ASTRONOMY|The study of stars and planets|🔭|3
+AIR|You breathe it|🔬|1
+GAS|Not a solid or a liquid|🔬|1
+FIRE|Hot and bright, it burns|🔬|1
+CELL|Tiny building block of life|🔬|1
+LENS|Curved glass that bends light|🔬|1
+GERM|Tiny thing that can make you sick|🔬|1
+MELT|What ice does when it warms|🔬|1
+SOLID|Something that keeps its shape|🔬|1
+LIQUID|Something you can pour|🔬|1
+STEAM|Water as a hot gas|🔬|1
+SHADOW|Dark shape when you block light|🔬|1
+INSECT|Bug with six legs|🔬|1
+FORCE|A push or a pull|🔬|1
+MOTION|When something moves|🔬|2
+FRICTION|It slows things that rub together|🔬|2
+PRESSURE|Force pressing on an area|🔬|2
+REACTION|What happens when chemicals combine|🔬|2
+SOLUTION|One thing dissolved in another|🔬|2
+NUCLEUS|The center of an atom or cell|🔬|2
+NEUTRON|Atom particle with no charge|🔬|2
+PROTON|Atom particle with a positive charge|🔬|2
+ELECTRON|Atom particle with a negative charge|🔬|2
+MAMMAL|Warm-blooded animal with fur|🔬|2
+REPTILE|Cold-blooded animal with scales|🔬|2
+AMPHIBIAN|Lives in water and on land|🔬|2
+VACCINE|Shot that helps you fight a disease|🔬|2
+GENETICS|The study of inherited traits|🔬|2
+BIOLOGY|The study of living things|🔬|2
+PHYSICS|The study of matter and energy|🔬|2
+GEOLOGY|The study of rocks and the earth|🔬|2
+DENSITY|How tightly packed something is|🔬|2
+CARBON|The element in diamonds and pencils|🔬|2
+HELIUM|Gas that makes balloons float|🔬|2
+TEST TUBE|Glass container for experiments|🔬|2
+FOOD CHAIN|Who eats whom|🔬|2
+WATER CYCLE|Rain, rivers, vapor and clouds again|🔬|2
+LIFE CYCLE|Stages from birth to adult|🔬|2
+SOLAR PANEL|It turns sunlight into power|🔬|2
+MAGNIFYING GLASS|Hand lens that makes things bigger|🔬|2
+PERIODIC TABLE|Chart of all the elements|🔬|3
+CHROMOSOME|Thread of DNA in a cell|🔬|3
+CATALYST|It speeds up a reaction|🔬|3
+ISOTOPE|Same element, different neutron count|🔬|3
+INERTIA|Things keep doing what they are doing|🔬|3
+MOMENTUM|Mass times velocity|🔬|3
+REFRACTION|Bending of light|🔬|3
+WAVELENGTH|Distance between two crests|🔬|3
+ECOLOGY|The study of living things and their homes|🔬|3
+ENZYME|Protein that speeds up body chemistry|🔬|3
+HYDROGEN|The lightest element|🔬|3
+NITROGEN|Most of the air is this gas|🔬|3
+OSMOSIS|Water moving through a membrane|🔬|3
+PLASMA|The fourth state of matter|🔬|3
+QUANTUM|The tiniest amount of energy|🔬|3
+SEISMOGRAPH|It records earthquakes|🔬|3
+THERMODYNAMICS|The science of heat and energy|🔬|3
+BAROMETER|It measures air pressure|🔬|3
+CENTRIFUGE|Machine that spins samples fast|🔬|3
+COMBUSTION|The process of burning|🔬|3
+ELECTROMAGNET|Magnet that runs on current|🔬|3
+RESPIRATION|How living things use oxygen|🔬|3`],
 music:['Music','🎵',`DRUM|Bang it to keep the beat|🥁|1
 PIANO|Black and white keys|🎹|1
 SONG|Music with words you can sing|🎤|1
@@ -784,7 +1621,111 @@ HARMONY|Different notes sung together|🎼|3
 SAXOPHONE|Curvy jazz horn|🎷|3
 ORCHESTRA|Large group playing many instruments|🎻|3
 CONDUCTOR|Leads the orchestra with a baton|🪄|3
-TEMPO|How fast the music goes|⏱️|3`],
+TEMPO|How fast the music goes|⏱️|3
+SING|Make music with your voice|🎤|1
+BELL|It rings|🔔|1
+HORN|You blow into it to make a loud sound|📯|1
+HARP|Instrument with many strings you pluck|🎶|1
+BAND|A group that plays together|🎸|1
+BEAT|The steady pulse you clap to|👏|1
+NOTE|A single musical sound|🎵|1
+TUNE|A melody you can hum|🎶|1
+CLAP|Hit your hands together|👏|1
+DANCE|Move your body to the beat|💃|1
+BANJO|Twangy string instrument|🪕|1
+RADIO|It plays songs in the car|📻|1
+HUM|Sing with your lips closed|🎵|1
+ORGAN|Big church instrument with pipes|🎹|1
+WHISTLE|Blow air through your lips to make a sound|😗|1
+CLARINET|Black woodwind with a reed|🎷|2
+TROMBONE|Brass instrument with a slide|🎺|2
+KEYBOARD|Electric piano|🎹|2
+CONCERT|A live show for an audience|🎟️|2
+RHYTHM|The pattern of beats|🥁|2
+LULLABY|A soft sleepy bedtime tune|🌙|2
+ANTHEM|A nation has one|🎌|2
+CYMBALS|Metal plates you crash together|🥁|2
+HARMONICA|Small instrument you blow and slide|🎶|2
+CHORUS|The part that repeats|🔁|2
+PLAYLIST|Your list of favorites|📱|2
+BAGPIPES|Scottish instrument with a bag and pipes|🎶|2
+COMPOSER|Person who writes symphonies|✍️|3
+SYMPHONY|Long piece for a full group of players|🎻|3
+ACCORDION|Squeeze box with keys|🪗|3
+METRONOME|Device that ticks to keep time|⏱️|3
+CRESCENDO|Getting gradually louder|📈|3
+PERCUSSION|The family of things you strike|🥁|3
+SOPRANO|The highest singing voice|🎤|3
+MANDOLIN|Small eight-string instrument|🎸|3
+ACOUSTIC|Not electric or amplified|🎸|3
+TIMPANI|Large kettle-shaped tuned skins|🥁|3
+SYNTHESIZER|Electronic instrument that shapes sound|🎛️|3
+BARITONE|Male voice between tenor and bass|🎤|3
+POP|Catchy radio style|🎵|1
+RAP|Rhyming words over a beat|🎵|1
+JAZZ|Swinging style from New Orleans|🎵|1
+SOLO|When one person plays alone|🎵|1
+DUET|Two people performing together|🎵|1
+BASS|The lowest notes|🎵|1
+LOUD|The opposite of quiet|🎵|1
+SOFT|The opposite of loud|🎵|1
+FAST|A quick speed|🎵|1
+SLOW|An unhurried speed|🎵|1
+HYMN|A church song of praise|🎵|1
+STAGE|Where the band stands|🎵|1
+VOICE|You sing with it|🎵|1
+MUSIC|Sounds put together to enjoy|🎵|1
+TUBA|Biggest brass instrument|🎵|1
+GONG|Big metal disk you strike|🎵|1
+BONGO|Small hand drums|🎵|1
+KAZOO|Buzzing toy you hum into|🎵|1
+CHIME|Hanging tube that rings|🎵|1
+STRUM|Brush your fingers across the strings|🎵|1
+LYRICS|The words to a song|🎵|2
+VERSE|The part between choruses|🎵|2
+BRIDGE|The section that changes things up|🎵|2
+ALBUM|A collection of songs|🎵|2
+ENCORE|One more after the show ends|🎵|2
+COUNTRY|Style from Nashville|🎵|2
+SPEAKER|Sound comes out of it|🎵|2
+TICKET|You need it to get into the show|🎵|2
+DRUMMER|Keeps the beat with sticks|🎵|2
+BALLAD|A slow story song|🎵|2
+RECITAL|A student performance|🎵|2
+RECORDER|Plastic flute from music class|🎵|2
+MARACAS|Shakers filled with beads|🎵|2
+TRIANGLE|Three-sided metal dinger|🎵|2
+PICCOLO|Tiny high flute|🎵|2
+CELLO|Big string instrument held between the knees|🎵|2
+OBOE|Double-reed woodwind|🎵|2
+BUGLE|Horn that plays taps|🎵|2
+DRUMSTICK|You hit the snare with it|🎵|2
+SHEET MUSIC|Printed notes on a page|🎵|2
+MARCHING BAND|Musicians who play while walking|🎵|2
+PRAISE TEAM|Group that leads singing at church|🎵|2
+BACKUP SINGER|Voice that supports the lead|🎵|2
+MUSIC STAND|It holds your pages|🎵|2
+FRENCH HORN|Coiled brass instrument|🎵|3
+BASSOON|Long low double-reed woodwind|🎵|3
+VIOLA|Slightly bigger than a violin|🎵|3
+GLOCKENSPIEL|Small metal bar instrument|🎵|3
+HARPSICHORD|Plucked keyboard from long ago|🎵|3
+ARPEGGIO|Notes of a chord played one by one|🎵|3
+CADENCE|A musical ending phrase|🎵|3
+OCTAVE|Eight notes apart|🎵|3
+OVERTURE|Opening piece before an opera|🎵|3
+STACCATO|Short and detached|🎵|3
+FALSETTO|Singing above your normal range|🎵|3
+VIBRATO|A slight wobble in pitch|🎵|3
+CONCERTO|Piece for a soloist and orchestra|🎵|3
+SONATA|Classical piece in several movements|🎵|3
+QUARTET|Group of four|🎵|3
+MAESTRO|A master conductor|🎵|3
+ACAPPELLA|Singing with no instruments|🎵|3
+IMPROVISE|Make it up as you go|🎵|3
+SYNCOPATION|Accenting the off beats|🎵|3
+TREBLE CLEF|Symbol for the higher notes|🎵|3
+TIME SIGNATURE|It tells how many beats per measure|🎵|3`],
 jobs:['Jobs','👷',`CHEF|Cooks in a restaurant|👩‍🍳|1
 DOCTOR|Helps you get well|🩺|1
 TEACHER|Helps students learn|🍎|1
@@ -804,7 +1745,620 @@ VETERINARIAN|Animal doctor|🐾|3
 PHOTOGRAPHER|Takes pictures for a living|📷|3
 ELECTRICIAN|Works with wires and power|💡|3
 JOURNALIST|Reports the news|📰|3
-ASTRONOMER|Studies stars and planets|🔭|3`]
+ASTRONOMER|Studies stars and planets|🔭|3
+COOK|Makes the food|🍳|1
+VET|Animal doctor, for short|🐾|1
+BAKER|Makes bread and cakes|🥖|1
+JUDGE|Decides cases in a courtroom|⚖️|1
+ACTOR|Plays a part in a movie|🎬|1
+CLOWN|Makes people laugh at the circus|🤡|1
+DRIVER|Sits behind the wheel|🚗|1
+SINGER|Performs songs|🎤|1
+ARTIST|Paints and draws|🎨|1
+WRITER|Puts stories on paper|✍️|1
+BUILDER|Puts up houses|🏗️|1
+POLICE|Officers who keep the town safe|🚓|1
+MAILMAN|Brings letters to your house|📬|1
+CASHIER|Rings up what you buy|🛒|1
+PLUMBER|Fixes pipes and leaks|🚰|2
+LAWYER|Speaks for people in court|⚖️|2
+BARBER|Cuts hair|💈|2
+WAITER|Brings food to your table|🍽️|2
+SURGEON|Doctor who operates|🏥|2
+REPORTER|Tells the news|🎙️|2
+LIFEGUARD|Watches swimmers to keep them safe|🏊|2
+MUSICIAN|Plays an instrument for a living|🎸|2
+DETECTIVE|Solves mysteries and crimes|🔍|2
+GARDENER|Takes care of plants and lawns|🌻|2
+SECRETARY|Keeps an office organized|🗂️|2
+PARAMEDIC|Gives emergency care in an ambulance|🚑|2
+PHARMACIST|Fills prescriptions|💊|3
+ACCOUNTANT|Keeps track of money and taxes|🧾|3
+MISSIONARY|Travels to share the gospel|🌍|3
+PROGRAMMER|Writes code for computers|💻|3
+THERAPIST|Helps people work through problems|🛋️|3
+ELECTRICAL ENGINEER|Designs circuits and power systems|⚡|3
+METEOROLOGIST|Forecasts the weather|🌦️|3
+CHIROPRACTOR|Adjusts the spine|🦴|3
+ARCHAEOLOGIST|Digs up ancient things|🏺|3
+OPTOMETRIST|Checks your eyes for glasses|👓|3
+ENTREPRENEUR|Starts a business|💼|3
+BOSS|The person in charge|👷|1
+MAID|Cleans rooms|👷|1
+NANNY|Cares for children at home|👷|1
+GUARD|Keeps a place safe|👷|1
+MAYOR|Leader of a city|👷|1
+MINER|Digs for coal or gold|👷|1
+SAILOR|Works on a ship|👷|1
+DANCER|Performs with moves|👷|1
+TAILOR|Sews and fits clothes|👷|1
+RANGER|Protects a park|👷|1
+CLERK|Helps you at the store|👷|1
+RANCHER|Raises cattle|👷|1
+PAINTER|Colors walls with a brush|👷|1
+SOLDIER|Serves in the army|👷|1
+JANITOR|Keeps the school clean|👷|1
+BUTCHER|Cuts and sells meat|👷|1
+FLORIST|Arranges flowers|👷|1
+WELDER|Joins metal with heat|👷|2
+ROOFER|Fixes the top of a house|👷|2
+TUTOR|Gives extra help with schoolwork|👷|2
+EDITOR|Fixes writing before it is printed|👷|2
+BANKER|Works with money and loans|👷|2
+PREACHER|Gives the sermon|👷|2
+PRINCIPAL|Leads a school|👷|2
+SHERIFF|County law officer|👷|2
+LANDSCAPER|Designs and cares for yards|👷|2
+BABYSITTER|Watches kids while parents are out|👷|2
+BUS DRIVER|Takes kids to school|👷|2
+CRANE OPERATOR|Lifts heavy loads at a build site|👷|2
+DOG GROOMER|Bathes and trims pets|👷|2
+FLIGHT ATTENDANT|Serves passengers on a plane|👷|2
+PARK RANGER|Guides visitors in the woods|👷|2
+TRUCK DRIVER|Hauls goods across the country|👷|2
+YOUTH PASTOR|Leads students at church|👷|2
+ZOOKEEPER|Feeds and cares for wild animals|👷|2
+ANIMATOR|Makes cartoons move|👷|2
+DESIGNER|Plans how things look|👷|2
+INVENTOR|Creates new things|👷|2
+MAGICIAN|Performs tricks|👷|2
+ILLUSTRATOR|Draws the pictures in books|👷|3
+INTERPRETER|Turns one language into another|👷|3
+AMBASSADOR|Represents a country abroad|👷|3
+ANESTHESIOLOGIST|Puts patients to sleep for surgery|👷|3
+AUCTIONEER|Fast talker who sells to the highest bidder|👷|3
+BIOLOGIST|Studies living things|👷|3
+CARTOGRAPHER|Makes maps|👷|3
+CHAPLAIN|Minister who serves in a hospital or the military|👷|3
+CURATOR|Looks after a museum collection|👷|3
+DERMATOLOGIST|Skin doctor|👷|3
+ECONOMIST|Studies money and markets|👷|3
+GEOLOGIST|Studies rocks|👷|3
+LOCKSMITH|Makes keys and opens doors|👷|3
+PARALEGAL|Assists attorneys|👷|3
+PEDIATRICIAN|Doctor for children|👷|3
+PSYCHOLOGIST|Studies the mind and behavior|👷|3
+RADIOLOGIST|Reads X-rays and scans|👷|3
+STENOGRAPHER|Types every word said in court|👷|3
+SURVEYOR|Measures land|👷|3
+UNDERWRITER|Evaluates risk for insurance|👷|3
+VENTRILOQUIST|Makes a puppet seem to talk|👷|3`],
+places:['Places','🌎',`ZOO|Where you see wild animals|🌎|1
+FARM|Where crops and cows are raised|🌎|1
+PARK|Place with swings and slides|🌎|1
+MALL|Lots of stores under one roof|🌎|1
+CITY|Big place with tall buildings|🌎|1
+TOWN|Smaller than a city|🌎|1
+BANK|Where money is kept|🌎|1
+SHOP|Where you buy things|🌎|1
+BARN|Red building on a farm|🌎|1
+CAMP|Where you sleep in a tent|🌎|1
+ROAD|Cars drive on it|🌎|1
+STORE|Where you get groceries|🌎|1
+HOTEL|Where travelers sleep|🌎|1
+SCHOOL|Where you learn|🌎|1
+CHURCH|Where believers gather to worship|🌎|1
+CASTLE|Where a king lives|🌎|1
+MUSEUM|Where old and special things are shown|🌎|1
+MARKET|Where farmers sell food|🌎|1
+TUNNEL|A road through a mountain|🌎|1
+AIRPORT|Where planes take off|🌎|2
+LIBRARY|Building full of books|🌎|2
+THEATER|Where you watch a play or movie|🌎|2
+HOSPITAL|Where sick people get care|🌎|2
+BAKERY|It smells like fresh bread|🌎|2
+STATION|Where trains stop|🌎|2
+HARBOR|Where ships dock|🌎|2
+VILLAGE|A very small town|🌎|2
+CAPITAL|City where the government meets|🌎|2
+ARIZONA|State with the Grand Canyon|🌎|2
+FLORIDA|The Sunshine State|🌎|2
+TEXAS|The Lone Star State|🌎|2
+ALASKA|The largest state|🌎|2
+HAWAII|State made of islands|🌎|2
+CANADA|Country north of the United States|🌎|2
+MEXICO|Country south of the United States|🌎|2
+AFRICA|Continent with the Sahara|🌎|2
+EUROPE|Continent with France and Spain|🌎|2
+PLAYGROUND|Where kids run at recess|🌎|2
+POST OFFICE|Where you mail a package|🌎|2
+FIRE STATION|Where the red trucks park|🌎|2
+GAS STATION|Where cars fill up|🌎|2
+AMUSEMENT PARK|Place with roller coasters|🌎|2
+LIGHTHOUSE|It guides ships at night|🌎|2
+AUSTRALIA|Country and continent with kangaroos|🌎|3
+ANTARCTICA|The frozen continent|🌎|3
+SWITZERLAND|Country known for the Alps and chocolate|🌎|3
+MISSISSIPPI|State and river with a tricky spelling|🌎|3
+PENNSYLVANIA|State where the Liberty Bell rings|🌎|3
+MASSACHUSETTS|State with Boston|🌎|3
+CONNECTICUT|State between New York and Rhode Island|🌎|3
+EMBASSY|A country's office in a foreign land|🌎|3
+CATHEDRAL|A grand church building|🌎|3
+BOULEVARD|A wide city street|🌎|3
+PLANETARIUM|Dome theater for stars|🌎|3
+AQUARIUM|Building full of fish tanks|🌎|3
+CONSERVATORY|Glass house for plants|🌎|3
+METROPOLIS|A very large city|🌎|3
+SUBURB|Neighborhood outside a city|🌎|3
+MONASTERY|Where monks live|🌎|3
+OBSERVATION DECK|High floor made for the view|🌎|3`],
+vehicles:['Things That Go','🚗',`CAR|Four wheels and a steering wheel|🚗|1
+BUS|It takes kids to school|🚗|1
+VAN|Boxy family ride|🚗|1
+JET|Very fast plane|🚗|1
+CAB|Yellow ride you pay for|🚗|1
+BIKE|Two wheels and pedals|🚗|1
+TAXI|Ride with a meter|🚗|1
+JEEP|Rugged off-road ride|🚗|1
+SLED|It slides down snowy hills|🚗|1
+TRAIN|It runs on tracks|🚗|1
+TRUCK|It hauls heavy loads|🚗|1
+PLANE|It flies through the sky|🚗|1
+WAGON|Red one you pull|🚗|1
+CANOE|Narrow boat you paddle|🚗|1
+KAYAK|Small boat with a double paddle|🚗|1
+WHEEL|Round part that rolls|🚗|1
+TRACTOR|Farm machine that pulls a plow|🚗|1
+SCOOTER|You push it with one foot|🚗|1
+ENGINE|It makes a car go|🚗|2
+HIGHWAY|Fast road with many lanes|🚗|2
+AMBULANCE|It rushes people to the hospital|🚗|2
+BULLDOZER|It pushes dirt with a big blade|🚗|2
+HELICOPTER|It flies with spinning blades|🚗|2
+MOTORCYCLE|Two-wheeler with a motor|🚗|2
+SUBMARINE|It travels underwater|🚗|2
+SAILBOAT|Wind pushes it across the water|🚗|2
+TUGBOAT|Small boat that pulls big ones|🚗|2
+TROLLEY|Streetcar on rails|🚗|2
+SUBWAY|Train under the city|🚗|2
+MINIVAN|Family ride with sliding doors|🚗|2
+LIMOUSINE|Long fancy car|🚗|2
+UNICYCLE|It has only one wheel|🚗|2
+FIRE TRUCK|Red and loaded with hoses|🚗|2
+DUMP TRUCK|Its bed tips to unload|🚗|2
+SCHOOL BUS|Big and yellow|🚗|2
+HOT AIR BALLOON|Basket that floats up with heat|🚗|2
+GARBAGE TRUCK|It picks up the trash|🚗|2
+SEAT BELT|Click it before you go|🚗|2
+STEERING WHEEL|You turn it to turn the car|🚗|2
+SPEEDBOAT|Fast motor craft on a lake|🚗|2
+SNOWMOBILE|Winter ride on skis and a track|🚗|2
+CATAMARAN|Boat with two hulls|🚗|3
+GONDOLA|Long boat of Venice|🚗|3
+HOVERCRAFT|It rides on a cushion of air|🚗|3
+LOCOMOTIVE|The engine that pulls a train|🚗|3
+ZEPPELIN|Giant rigid airship|🚗|3
+CONVERTIBLE|Car with a top that folds down|🚗|3
+EXCAVATOR|Digging machine with a long arm|🚗|3
+FERRY|Boat that carries cars across water|🚗|3
+FREIGHTER|Ship that carries cargo|🚗|3
+TRANSMISSION|It shifts the gears|🚗|3
+ODOMETER|It counts the miles|🚗|3
+CARBURETOR|It mixes air and fuel in old engines|🚗|3
+MONORAIL|Train on a single track|🚗|3
+RICKSHAW|Small cart pulled by a person|🚗|3
+TOBOGGAN|Long flat sled|🚗|3
+DIRIGIBLE|Steerable airship|🚗|3`],
+clothes:['Clothes','👕',`HAT|It sits on your head|👕|1
+CAP|Hat with a bill|👕|1
+TIE|Worn around the neck with a suit|👕|1
+SOCK|It goes on before your shoe|👕|1
+SHOE|It covers your foot|👕|1
+BOOT|Tall footwear for rain or snow|👕|1
+COAT|You wear it when it is cold|👕|1
+BELT|It holds up your pants|👕|1
+GOWN|A long fancy dress|👕|1
+ROBE|You wear it after a bath|👕|1
+SHIRT|It has sleeves and a collar|👕|1
+PANTS|They cover your legs|👕|1
+DRESS|One piece with a skirt|👕|1
+SCARF|It keeps your neck warm|👕|1
+SKIRT|It hangs from the waist|👕|1
+JEANS|Blue denim pants|👕|1
+VEST|Jacket with no sleeves|👕|1
+GLOVE|It has five fingers|👕|1
+BUTTON|It closes your shirt|👕|1
+ZIPPER|It slides up to close a jacket|👕|1
+JACKET|A light coat|👕|1
+MITTEN|Hand warmer with one thumb space|👕|1
+POCKET|Where you keep your keys|👕|1
+SWEATER|Knitted and warm|👕|2
+SANDALS|Open shoes for summer|👕|2
+SNEAKERS|Shoes for running|👕|2
+PAJAMAS|What you wear to bed|👕|2
+SHORTS|Pants that stop above the knee|👕|2
+HOODIE|Sweatshirt with a head cover|👕|2
+UNIFORM|Clothes everyone on the team wears|👕|2
+RAINCOAT|It keeps you dry|👕|2
+BACKPACK|Bag you carry on your shoulders|👕|2
+BRACELET|Jewelry for your wrist|👕|2
+NECKLACE|Jewelry for your neck|👕|2
+EARRINGS|Jewelry for your ears|👕|2
+SUNGLASSES|They shade your eyes|👕|2
+SLIPPERS|Soft shoes for inside|👕|2
+OVERALLS|Pants with a bib and straps|👕|2
+SWIMSUIT|What you wear in the pool|👕|2
+BOW TIE|Small knot worn at the collar|👕|2
+FLIP FLOPS|Thin beach footwear|👕|2
+BASEBALL CAP|Hat with a team logo|👕|2
+WRISTWATCH|It tells time on your arm|👕|2
+SHOELACE|You tie it in a bow|👕|2
+CARDIGAN|Sweater that buttons in front|👕|3
+TUXEDO|Formal black suit|👕|3
+BLAZER|Dressy jacket|👕|3
+PONCHO|Blanket-like wrap with a head hole|👕|3
+KIMONO|Traditional Japanese robe|👕|3
+TURTLENECK|Sweater with a high folded collar|👕|3
+SUSPENDERS|Straps that hold up trousers|👕|3
+CORDUROY|Fabric with soft ridges|👕|3
+CASHMERE|Very soft wool|👕|3
+MOCCASINS|Soft leather slip-ons|👕|3
+GALOSHES|Rubber overshoes|👕|3
+CUFFLINKS|Fasteners for dress sleeves|👕|3
+PINSTRIPE|Thin lines on a suit|👕|3
+WINDBREAKER|Thin jacket for breezy days|👕|3
+EMBROIDERY|Decorative stitching|👕|3
+HOUNDSTOOTH|Jagged checkered pattern|👕|3`],
+school:['School','🎒',`PEN|It writes in ink|🎒|1
+MAP|It shows where places are|🎒|1
+BOOK|You read it|🎒|1
+TEST|It checks what you learned|🎒|1
+MATH|Numbers and adding|🎒|1
+READ|What you do with a story|🎒|1
+GLUE|It sticks paper together|🎒|1
+LUNCH|The meal in the middle of the day|🎒|1
+CHALK|It writes on a blackboard|🎒|1
+PAPER|You write on it|🎒|1
+RULER|It measures inches|🎒|1
+CLASS|A group of students|🎒|1
+GRADE|First, second or third|🎒|1
+SPELL|Put letters in the right order|🎒|1
+PENCIL|It writes and has an eraser|🎒|1
+CRAYON|Wax stick for coloring|🎒|1
+RECESS|Outdoor play break|🎒|1
+ERASER|It rubs out mistakes|🎒|1
+FOLDER|It holds your papers|🎒|1
+LOCKER|Where you keep your things|🎒|1
+MARKER|It colors with bold ink|🎒|1
+NUMBER|One, two or three|🎒|1
+LETTER|A, B or C|🎒|1
+STUDENT|Someone who learns|🎒|2
+HISTORY|The study of the past|🎒|2
+SCIENCE|The study of how the world works|🎒|2
+HOMEWORK|Schoolwork you do at night|🎒|2
+NOTEBOOK|Bound pages for notes|🎒|2
+SCISSORS|They cut paper|🎒|2
+ALPHABET|All twenty-six letters|🎒|2
+CAFETERIA|Where you eat at school|🎒|2
+CALENDAR|It shows the days and months|🎒|2
+COMPUTER|Machine with a screen and keyboard|🎒|2
+DICTIONARY|Book of word meanings|🎒|2
+GEOGRAPHY|The study of places on Earth|🎒|2
+GRADUATION|Ceremony with caps and gowns|🎒|2
+GYMNASIUM|Big room for PE|🎒|2
+BLACKBOARD|The teacher writes on it|🎒|2
+BOOKMARK|It saves your page|🎒|2
+CLASSROOM|Where the lesson happens|🎒|2
+FIELD TRIP|A day of learning away from the building|🎒|2
+REPORT CARD|It lists your grades|🎒|2
+SPELLING BEE|Contest of letters|🎒|2
+STICKY NOTE|Small yellow square that clings|🎒|2
+HIGHLIGHTER|Bright pen that marks key lines|🎒|2
+MULTIPLICATION|Times tables|🎒|3
+PUNCTUATION|Commas, periods and question marks|🎒|3
+VOCABULARY|The words you know|🎒|3
+ALGEBRA|Math with letters for unknowns|🎒|3
+GEOMETRY|Math of shapes and angles|🎒|3
+LITERATURE|Great written works|🎒|3
+PROTRACTOR|Tool for measuring angles|🎒|3
+SEMESTER|Half of an academic year|🎒|3
+SYLLABUS|Outline of a course|🎒|3
+CURRICULUM|Everything a school teaches|🎒|3
+ENCYCLOPEDIA|Set of books on every subject|🎒|3
+SCHOLARSHIP|Money awarded for college|🎒|3
+VALEDICTORIAN|Top student in the class|🎒|3
+KINDERGARTEN|The year before first grade|🎒|3
+EXTRACURRICULAR|Activities outside of class|🎒|3
+SHOW AND TELL|Bring something to class and talk about it|🎒|2`],
+ocean:['Ocean','🌊',`SEA|Big salty water|🌊|1
+EEL|Long slippery fish|🌊|1
+FIN|A fish steers with it|🌊|1
+TIDE|The water rises and falls with it|🌊|1
+SALT|What makes seawater taste the way it does|🌊|1
+REEF|Rocky ridge where fish hide|🌊|1
+CLAM|Shellfish that snaps shut|🌊|1
+SHELL|A hermit crab lives in one|🌊|1
+CORAL|Colorful underwater builder|🌊|1
+PEARL|Round gem from an oyster|🌊|1
+SQUID|Sea animal with ten arms that squirts ink|🌊|1
+SHRIMP|Small pink shellfish|🌊|1
+OYSTER|Shellfish that makes a gem|🌊|1
+ANCHOR|It holds a ship in place|🌊|1
+PIRATE|Sea robber with a treasure map|🌊|1
+DIVER|Swimmer with a tank and mask|🌊|1
+SURF|Waves breaking on the shore|🌊|1
+SAIL|Cloth that catches the wind|🌊|1
+DOCK|Where boats tie up|🌊|1
+MERMAID|Make-believe woman with a fish tail|🌊|2
+TREASURE|Gold in a sunken chest|🌊|2
+SNORKEL|Tube for breathing at the surface|🌊|2
+LIFEBOAT|Small craft for emergencies|🌊|2
+SHIPWRECK|Sunken vessel on the sea floor|🌊|2
+SEAGULL|Noisy bird at the beach|🌊|2
+SWORDFISH|Fish with a long pointed bill|🌊|2
+CLOWNFISH|Orange and white striped reef dweller|🌊|2
+BLUE WHALE|Largest animal that has ever lived|🌊|2
+HAMMERHEAD|Shark with a wide flat head|🌊|2
+SEA LION|Barking swimmer with ear flaps|🌊|2
+SEA OTTER|It cracks shells on its belly|🌊|2
+HERMIT CRAB|It borrows empty shells|🌊|2
+KILLER WHALE|Black and white hunter, also called an orca|🌊|2
+MANTA RAY|Giant flat glider with wing-like fins|🌊|2
+PUFFERFISH|It blows up like a balloon|🌊|2
+ANGELFISH|Flat striped tropical swimmer|🌊|2
+HIGH TIDE|When the water comes farthest up the beach|🌊|2
+SANDCASTLE|You build it with a bucket|🌊|2
+SURFBOARD|You ride waves on it|🌊|2
+TSUNAMI|Giant wave caused by an earthquake|🌊|3
+ATLANTIC|Ocean between America and Europe|🌊|3
+PACIFIC|The largest ocean|🌊|3
+CURRENT|River of moving water within the sea|🌊|3
+BARNACLE|Crusty creature stuck to ship hulls|🌊|3
+PORPOISE|Small cousin of the dolphin|🌊|3
+ANEMONE|Flower-like animal that shelters clownfish|🌊|3
+NAUTILUS|Shelled swimmer with a spiral home|🌊|3
+CUTTLEFISH|Color-changing relative of the squid|🌊|3
+BIOLUMINESCENCE|Light made by living things|🌊|3
+CONTINENTAL SHELF|Shallow sea floor near the land|🌊|3
+MARIANA TRENCH|The deepest place on Earth|🌊|3
+SCUBA DIVING|Exploring underwater with an air tank|🌊|3
+OCEANOGRAPHER|Scientist who studies the sea|🌊|3
+KELP FOREST|Underwater jungle of giant seaweed|🌊|3
+RIPTIDE|Strong pull away from shore|🌊|3
+SEAFARER|One who travels by ship|🌊|3
+STARBOARD|The right side of a ship|🌊|3
+LEVIATHAN|Sea monster named in the book of Job|🌊|3
+SEA URCHIN|Spiny ball on the ocean floor|🌊|2`],
+holidays:['Holidays','🎉',`GIFT|It comes wrapped with a bow|🎉|1
+EGGS|You hunt for them at Easter|🎉|1
+FLAG|You wave it on the Fourth of July|🎉|1
+BOW|It goes on top of a present|🎉|1
+CARD|You send it to say you care|🎉|1
+PARTY|A celebration with friends|🎉|1
+CANDLE|You blow it out and make a wish|🎉|1
+SANTA|He wears a red suit|🎉|1
+ELF|Santa's little helper|🎉|1
+MASK|It covers your face with a costume|🎉|1
+FEAST|A very big meal|🎉|1
+PARADE|Floats and bands go down the street|🎉|1
+WREATH|Green circle hung on the door|🎉|1
+TINSEL|Shiny silver strands|🎉|1
+BALLOON|It floats on a string|🎉|1
+PUMPKIN|Orange and carved in the fall|🎉|1
+STOCKING|It hangs by the chimney|🎉|2
+ORNAMENT|It hangs on a branch|🎉|2
+SNOWMAN|He has a carrot nose|🎉|2
+FIREWORKS|They light up the night with booms|🎉|2
+BIRTHDAY|The day you were born|🎉|2
+CHRISTMAS|We celebrate the birth of Jesus|🎉|2
+EASTER|We celebrate that Jesus is risen|🎉|2
+THANKSGIVING|Day for turkey and gratitude|🎉|2
+VALENTINE|Card for someone you love|🎉|2
+NEW YEAR|It starts on January first|🎉|2
+CONFETTI|Tiny bits of colored paper|🎉|2
+COSTUME|What you wear to dress up|🎉|2
+SLEIGH|Santa rides in it|🎉|2
+NATIVITY|The scene of Jesus in the manger|🎉|2
+CAROLING|Singing door to door|🎉|2
+MISTLETOE|Hang it and someone may get a kiss|🎉|2
+GINGERBREAD HOUSE|Cookie home with icing|🎉|2
+CANDY CANE|Red and white striped treat|🎉|2
+GOOD FRIDAY|The day we remember the cross|🎉|2
+INDEPENDENCE DAY|The Fourth of July|🎉|3
+MEMORIAL DAY|We honor those who died serving|🎉|3
+VETERANS DAY|We honor those who served|🎉|3
+LABOR DAY|Holiday on the first Monday of September|🎉|3
+ANNIVERSARY|Yearly date of a wedding|🎉|3
+CELEBRATION|A joyful gathering|🎉|3
+TRADITION|Something a family does every year|🎉|3
+POINSETTIA|Red Christmas plant|🎉|3
+CORNUCOPIA|Horn of plenty|🎉|3
+RESOLUTION|A promise you make in January|🎉|3
+ADVENT|The weeks leading up to Christmas|🎉|3
+EPIPHANY|Day that remembers the visit of the wise men|🎉|3
+PENTECOST SUNDAY|We remember the Spirit being poured out|🎉|3
+CANDLELIGHT SERVICE|Church gathering lit by small flames|🎉|3
+PALM SUNDAY|Holy Week begins with it|🎉|2
+MOTHERS DAY|A holiday to honor mom|🎉|2
+FATHERS DAY|A holiday to honor dad|🎉|2`],
+tech:['Technology','💻',`APP|Program on your phone|💻|1
+WEB|Short name for the internet|💻|1
+CODE|Instructions for a computer|💻|1
+LINK|Click it to go to a page|💻|1
+TEXT|A message you type|💻|1
+WIFI|Internet with no wires|💻|1
+ZOOM|Make the picture bigger|💻|1
+CLICK|Press the mouse button|💻|1
+EMAIL|A letter sent online|💻|1
+PHOTO|A picture from a camera|💻|1
+ROBOT ARM|Machine that lifts in a factory|💻|2
+SCREEN|The part you look at|💻|1
+VIDEO|Moving pictures|💻|1
+CAMERA|It takes pictures|💻|1
+LAPTOP|Computer that folds|💻|1
+TABLET|Flat touch screen|💻|1
+PRINTER|It puts words on paper|💻|1
+CHARGER|It refills your phone|💻|2
+WEBSITE|A place on the internet|💻|2
+PASSWORD|Secret word to log in|💻|2
+INTERNET|It connects computers worldwide|💻|2
+DOWNLOAD|Bring a file to your device|💻|2
+SOFTWARE|Programs that run on a computer|💻|2
+HARDWARE|The parts you can touch|💻|2
+BLUETOOTH|Short-range wireless link|💻|2
+BROWSER|Program for viewing pages|💻|2
+CONSOLE|Box that plays video games|💻|2
+HEADSET|Earphones with a microphone|💻|2
+JOYSTICK|Stick that controls a game|💻|2
+PIXEL|One tiny dot on a display|💻|2
+STREAMING|Watching without saving the file|💻|2
+TOUCHSCREEN|You tap it with a finger|💻|2
+USERNAME|The name you log in with|💻|2
+SMART WATCH|Tiny computer on your wrist|💻|2
+SEARCH ENGINE|It finds pages for you|💻|2
+VIDEO CALL|Talk while seeing each other|💻|2
+VOICE ASSISTANT|It answers when you speak|💻|2
+ALGORITHM|Step-by-step rules for solving a problem|💻|3
+BANDWIDTH|How much data a connection can carry|💻|3
+DATABASE|Organized collection of information|💻|3
+ENCRYPTION|Scrambling data to keep it secret|💻|3
+FIREWALL|It blocks unwanted network traffic|💻|3
+PROCESSOR|The chip that does the thinking|💻|3
+SEMICONDUCTOR|Material that chips are made from|💻|3
+BROADBAND|Fast always-on connection|💻|3
+CYBERSECURITY|Protecting systems from attack|💻|3
+MOTHERBOARD|The main circuit board|💻|3
+OPERATING SYSTEM|The software that runs the machine|💻|3
+VIRTUAL REALITY|A headset puts you in another world|💻|3
+ARTIFICIAL INTELLIGENCE|Machines that learn and reason|💻|3
+CLOUD STORAGE|Saving files on remote servers|💻|3
+AUTHENTICATION|Proving you are who you say you are|💻|3`],
+toys:['Toys and Games','🧸',`TOY|Something you play with|🧸|1
+TAG|Game where someone is it|🧸|1
+TOP|It spins on its point|🧸|1
+DOLL|Toy shaped like a person|🧸|1
+KITE|It flies on a string|🧸|1
+YOYO|It goes up and down on a string|🧸|1
+DICE|Cubes with dots you roll|🧸|1
+CARD GAME|You shuffle and deal for it|🧸|2
+PUZZLE|Pieces that fit together|🧸|1
+BLOCKS|You stack them into towers|🧸|1
+SLIDE|You climb up and zoom down|🧸|1
+SWING|You pump your legs to go higher|🧸|1
+TEDDY|Stuffed bear you hug|🧸|1
+BUBBLES|You blow them with a wand|🧸|1
+MARBLE|Small glass ball|🧸|1
+CHESS|Game with kings and queens|🧸|1
+CRAYONS|Box of coloring sticks|🧸|1
+SLIME|Stretchy gooey stuff|🧸|1
+PUPPET|Toy you move with your hand|🧸|1
+RATTLE|Baby toy that makes noise|🧸|1
+CHECKERS|Red and black jumping game|🧸|2
+HOPSCOTCH|Hop through numbered squares|🧸|2
+TRAMPOLINE|You bounce on it|🧸|2
+FRISBEE|Flying disk you throw|🧸|2
+DOMINOES|Tiles with dots that topple|🧸|2
+PINWHEEL|It spins in the wind|🧸|2
+SANDBOX|Where you dig and build|🧸|2
+SEESAW|It goes up and down with two riders|🧸|2
+TREEHOUSE|Clubhouse in the branches|🧸|2
+WATER GUN|It squirts on a hot day|🧸|2
+BOARD GAME|You play it around a table|🧸|2
+HIDE AND SEEK|Count to ten, then go find them|🧸|2
+JACK IN THE BOX|It pops up when you crank|🧸|2
+JIGSAW|Picture cut into many pieces|🧸|2
+ACTION FIGURE|Small poseable hero|🧸|2
+ROCKING HORSE|Wooden pony that sways|🧸|2
+STUFFED ANIMAL|Soft plush friend|🧸|2
+MODEL TRAIN|Tiny locomotive on a track|🧸|2
+REMOTE CONTROL CAR|You steer it from across the room|🧸|2
+BUILDING BRICKS|Small plastic pieces that snap together|🧸|2
+PILLOW FORT|Hideout made from cushions|🧸|2
+SCAVENGER HUNT|Follow a list to find things|🧸|2
+KALEIDOSCOPE|Tube with shifting colored patterns|🧸|3
+MARIONETTE|Puppet on strings|🧸|3
+BACKGAMMON|Old board game with dice and checkers|🧸|3
+CROSSWORD|Grid of clues and letters|🧸|3
+CHARADES|Act it out with no words|🧸|3
+CROQUET|Lawn game with mallets and hoops|🧸|3
+SHUFFLEBOARD|Slide disks down a long court|🧸|3
+TIDDLYWINKS|Flip small disks into a cup|🧸|3
+FOOSBALL|Table soccer with rods|🧸|3
+BOOMERANG|It comes back when you throw it|🧸|3
+PINBALL|Arcade game with flippers|🧸|3
+RUBIKS CUBE|Colorful twisting block|🧸|3
+SOLITAIRE|Card game for one|🧸|3
+DOLLHOUSE|Tiny home with tiny furniture|🧸|3`],
+body:['My Body','🧍',`ARM|It has an elbow|🧍|1
+LEG|It has a knee|🧍|1
+EYE|You see with it|🧍|1
+EAR|You hear with it|🧍|1
+TOE|Little piggy on your foot|🧍|1
+LIP|Part of your mouth|🧍|1
+HIP|Where your leg meets your body|🧍|1
+RIB|Bone that guards your lungs|🧍|1
+HAND|It has five fingers|🧍|1
+FOOT|You stand on it|🧍|1
+NOSE|You smell with it|🧍|1
+KNEE|It bends your leg|🧍|1
+NECK|It holds up your head|🧍|1
+HAIR|It grows on your head|🧍|1
+CHIN|It is below your mouth|🧍|1
+BACK|Your spine runs down it|🧍|1
+SKIN|It covers your whole body|🧍|1
+HEAD|Your brain is inside it|🧍|1
+FACE|It shows your smile|🧍|1
+MOUTH|You eat and talk with it|🧍|1
+TEETH|You brush them twice a day|🧍|1
+THUMB|The short thick finger|🧍|1
+ELBOW|It bends your arm|🧍|1
+ANKLE|It joins your foot and leg|🧍|1
+WRIST|It joins your hand and arm|🧍|1
+FINGER|You have ten|🧍|1
+TONGUE|You taste with it|🧍|2
+STOMACH|Food goes here after you swallow|🧍|2
+SHOULDER|Where your arm joins your body|🧍|2
+EYEBROW|Line of hair above the eye|🧍|2
+EYELASH|Tiny hairs on your eyelid|🧍|2
+FOREHEAD|Above your eyes|🧍|2
+KNUCKLE|Joint in a finger|🧍|2
+LUNGS|You breathe with them|🧍|2
+SPINE|Your backbone|🧍|2
+SKULL|The bone that protects your brain|🧍|2
+VEINS|They carry blood back to the heart|🧍|2
+THROAT|Food and air pass down it|🧍|2
+KIDNEY|Bean-shaped blood filter|🧍|2
+LIVER|Large organ that cleans your blood|🧍|2
+HEARTBEAT|The thump in your chest|🧍|2
+FINGERNAIL|Hard tip you can trim|🧍|2
+FUNNY BONE|It tingles when you bump your elbow|🧍|2
+BELLY BUTTON|The dot in the middle of your tummy|🧍|2
+ESOPHAGUS|Tube from throat to stomach|🧍|3
+INTESTINE|Long tube that absorbs food|🧍|3
+PANCREAS|Organ that makes insulin|🧍|3
+VERTEBRAE|The small bones of the spine|🧍|3
+CARTILAGE|Flexible tissue in your nose and ears|🧍|3
+LIGAMENT|It connects bone to bone|🧍|3
+TENDON|It connects muscle to bone|🧍|3
+DIAPHRAGM|Muscle that helps you breathe|🧍|3
+CLAVICLE|The collarbone|🧍|3
+STERNUM|The breastbone|🧍|3
+RETINA|Light-sensing layer at the back of the eye|🧍|3
+CEREBELLUM|Part of the brain that controls balance|🧍|3
+BICEPS|Front upper arm muscle|🧍|3
+ABDOMEN|The belly area|🧍|3
+ARTERY|It carries blood away from the heart|🧍|3`]
 };
 const CATS={};
 for(const k in RAW){const[name,icon,txt]=RAW[k];CATS[k]={name,icon,words:txt.trim().split('\n').map(l=>{const[w,c,e,t]=l.split('|');return{w:w.trim(),c,e,t:+t,cat:k};})};}
@@ -1195,16 +2749,27 @@ $('#startBtn').addEventListener('click',()=>{audioInit();sfx('tap');startGame(se
 /* ================= WORD PICKING ================= */
 function pool(age,cat){const tiers=new Set(AGES[age].tiers);let p=(cat==='mixed'?ALL:CATS[cat].words).filter(w=>tiers.has(w.t));if(p.length<4)p=(cat==='mixed'?ALL:CATS[cat].words).filter(w=>w.t<=Math.max(...tiers));return p;}
 function chooseWord(age,diff,cat){
-  let p=pool(age,cat);
+  const all=pool(age,cat);
   // difficulty shapes length: easy favors shorter, hard favors longer
-  const sorted=[...p].sort((a,b)=>a.w.replace(/ /g,'').length-b.w.replace(/ /g,'').length);
+  const sorted=[...all].sort((a,b)=>a.w.replace(/ /g,'').length-b.w.replace(/ /g,'').length);
   const n=sorted.length;
-  if(diff==='easy')p=sorted.slice(0,Math.max(4,Math.ceil(n*.65)));
-  else if(diff==='hard')p=sorted.slice(Math.floor(n*.35));
+  let pref=all;
+  if(diff==='easy')pref=sorted.slice(0,Math.max(4,Math.ceil(n*.65)));
+  else if(diff==='hard')pref=sorted.slice(Math.floor(n*.35));
+  // S.recent remembers every word already played (saved between visits), so nothing repeats
+  // until the whole list for this age group and category has been used.
+  const used=new Set(S.recent);
+  let fresh=pref.filter(w=>!used.has(w.w));
+  if(!fresh.length)fresh=all.filter(w=>!used.has(w.w)); // out of preferred lengths: finish the rest first
+  if(!fresh.length){ // every word here has been played: start this list over
+    const names=new Set(all.map(w=>w.w));const last=S.recent[S.recent.length-1];
+    S.recent=S.recent.filter(x=>!names.has(x));
+    fresh=pref.filter(w=>w.w!==last);if(!fresh.length)fresh=pref;
+    toast('🔁','You played every word here!','Starting this list over');
+  }
   // weight tiers per age (teens get more tier 2, adults more tier 3)
-  const tw=AGES[age].tiers;const weighted=[];for(const w of p){const c=tw.filter(t=>t===w.t).length||1;for(let i=0;i<c;i++)weighted.push(w);}
-  let fresh=weighted.filter(w=>!S.recent.includes(w.w));if(!fresh.length){S.recent=[];fresh=weighted;}
-  const w=pick(fresh);S.recent.push(w.w);if(S.recent.length>60)S.recent.shift();return w;
+  const tw=AGES[age].tiers;const weighted=[];for(const w of fresh){const c=tw.filter(t=>t===w.t).length||1;for(let i=0;i<c;i++)weighted.push(w);}
+  const w=pick(weighted);S.recent.push(w.w);save();return w;
 }
 function hashStr(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
 
@@ -1226,7 +2791,7 @@ function startGame(mode,opt){
 }
 function newWord(){
   let w;
-  if(G.mode==='daily')w=G.dailyWord; else if(G.mode==='party')w=G.custom; else w=chooseWord(G.age,G.diff,G.cat);
+  if(G.mode==='daily'){w=G.dailyWord;if(!S.recent.includes(w.w)){S.recent.push(w.w);save();}} else if(G.mode==='party')w=G.custom; else w=chooseWord(G.age,G.diff,G.cat);
   const letters=[...new Set(w.w.replace(/[^A-Z]/g,''))];
   Object.assign(G,{w,word:w.w,letters,guessed:new Set(),gone:new Set(),wrong:0,lives:DIFF[G.diff].lives,max:DIFF[G.diff].lives,combo:0,score:0,golden:pick(letters),goldFound:false,usedPower:false,clue:false,ended:false,wrongOrder:[],steps:0});
   G.clue = G.mode==='daily' || G.diff==='easy' || G.age==='kids' || (G.mode==='party'&&!!w.c);
@@ -1529,7 +3094,7 @@ setTimeout(boot,1700);$('#splash').addEventListener('click',()=>{audioInit();boo
 // first touch anywhere unlocks audio (browsers require a tap before sound)
 addEventListener('pointerdown',()=>{const first=!A.ctx;audioInit();if(first&&A.ctx){const s=A.style;A.style=null;music(s||'menu');}},{passive:true});
 // test hook (harmless): lets automated tests read state
-window.__glimmer={get G(){return G},get S(){return S},guess:(l)=>guess(l)};
+window.__glimmer={get G(){return G},get S(){return S},guess:(l)=>guess(l),chooseWord,pool,save,AGES,DIFF,CATS,ALL};
 })();
 </script>
 </body>
